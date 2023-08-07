@@ -8,6 +8,7 @@ import { HeroComponent, HomePageComponent, PopularDestinationComponent } from '.
 import { MainLayoutComponent } from './main/layouts';
 import { AboutPageComponent } from './main/about';
 import { CtaMapComponent } from './main/home/components/cta-map/cta-map.component';
+import { ComparePageComponent } from './main/compare';
 
 
 
@@ -23,7 +24,8 @@ import { CtaMapComponent } from './main/home/components/cta-map/cta-map.componen
     PopularDestinationComponent,
     MainLayoutComponent,
     AboutPageComponent,
-    CtaMapComponent
+    CtaMapComponent,
+    ComparePageComponent
   ],
   imports: [
     CommonModule,

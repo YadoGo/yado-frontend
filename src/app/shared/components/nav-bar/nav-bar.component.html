@@ -16,14 +16,16 @@
       </a>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-        >Popular</a
+      <a routerLink="/" class="text-sm font-semibold leading-6 text-gray-900"
+        >Home</a
       >
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
+      <a routerLink="/top" class="text-sm font-semibold leading-6 text-gray-900"
+        >Top</a
+      >
+      <a
+        routerLink="/compare"
+        class="text-sm font-semibold leading-6 text-gray-900"
         >Compare</a
-      >
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-        >Marketplace</a
       >
       <a
         routerLink="/about"
@@ -121,19 +123,19 @@
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6">
             <a
-              href="#"
+              routerLink="/"
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >Popular</a
+              >Home</a
             >
             <a
-              href="#"
+              href="/top"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+              >Top</a
+            >
+            <a
+              routerLink="/compare"
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >Compare</a
-            >
-            <a
-              href="#"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >Marketplace</a
             >
             <a
               routerLink="/about"
