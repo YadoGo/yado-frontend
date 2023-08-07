@@ -1,25 +1,13 @@
 module.exports = {
-  content: [],
+  content: [
+    './src/**/*.html',
+    './src/**/*.ts',
+  ],
   theme: {
     extend: {},
   },
   plugins: [
     require('daisyui'),
+    require('tailwindcss-animated')
   ],
-  daisyui: {
-    themes: [
-      {
-        light: {
-          "primary": "#ea4b37",
-          "secondary": "#fc8a72",
-        },
-      },
-      {
-        dark: {
-          "primary": "#ea4b37",
-          "secondary": "#fc8a72",
-        },
-      },
-    ],
-  },
 };
