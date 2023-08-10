@@ -1,26 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { BannerComponent, FooterComponent, NavBarComponent, SearchComponent } from './components';
+import { CardHotelComponent, FooterComponent, NavBarComponent, SearchComponent } from './components';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     NavBarComponent,
-    BannerComponent,
     SearchComponent,
     FooterComponent,
+    CardHotelComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     NavBarComponent,
-    BannerComponent,
     SearchComponent,
-    FooterComponent
+    FooterComponent,
+    CardHotelComponent
   ]
 })
 export class SharedModule { }

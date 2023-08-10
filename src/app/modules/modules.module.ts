@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 
 import { AuthLayoutComponent, LoginPageComponent, RegisterPageComponent } from './auth';
-import { HeroComponent, HomePageComponent, PopularDestinationComponent } from './main/home';
+import { HeroComponent, CtaMapComponent, HomePageComponent, PopularDestinationComponent } from './main/home';
 import { MainLayoutComponent } from './main/layouts';
 import { AboutPageComponent } from './main/about';
-import { CtaMapComponent } from './main/home/components/cta-map/cta-map.component';
 import { ComparePageComponent } from './main/compare';
+import { TopHotelsPageComponent } from './main/top-hotels';
+import { FiltersComponent, ListComponent, ListHotelsPageComponent, MapHotelsComponent } from './main/list-hotels';
 
 
 
@@ -25,7 +26,12 @@ import { ComparePageComponent } from './main/compare';
     MainLayoutComponent,
     AboutPageComponent,
     CtaMapComponent,
-    ComparePageComponent
+    ComparePageComponent,
+    TopHotelsPageComponent,
+    ListHotelsPageComponent,
+    FiltersComponent,
+    ListComponent,
+    MapHotelsComponent
   ],
   imports: [
     CommonModule,
