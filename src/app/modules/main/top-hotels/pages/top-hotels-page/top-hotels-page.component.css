@@ -1,10 +1,10 @@
-/* Estilos generales */
+/* Estilos generales para la lista de hoteles */
 .hotel-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  background-color: #f0f0f0;
+  min-height: 100vh; /* Altura mínima igual al 100% del viewport */
+  background-color: #f0f0f0; /* Fondo gris claro */
   padding: 50px 0;
 }
 
@@ -16,29 +16,29 @@
 
 .title h2 {
   font-size: 36px;
-  color: #333;
+  color: #333; /* Color de texto oscuro */
   margin-bottom: 10px;
   font-weight: bold;
 }
 
 .title p {
   font-size: 18px;
-  color: #666;
+  color: #666; /* Color de texto gris medio */
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
 }
 
-/* Estilos para la lista de hoteles */
+/* Estilos para la lista de tarjetas de hoteles */
 .hotel-card-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas en cada fila */
   grid-gap: 20px;
   max-width: 1600px;
   margin: 0 auto;
 }
 
-/* Estilos para la tarjeta de hotel */
+/* Estilos para cada tarjeta de hotel */
 .hotel-card {
   position: relative;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
@@ -60,14 +60,16 @@
   width: 150%;
   height: 195px;
   object-fit: cover;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 0 0;
 }
 
+/* Efecto de escala y sombra al hacer hover en una tarjeta */
 .hotel-card:hover {
   transform: translateY(-5px) scale(1.03);
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilos para el título dentro de la tarjeta */
 .hotel-title {
   position: absolute;
   top: 10px;
@@ -82,6 +84,7 @@
   margin: 0;
 }
 
+/* Estilos para la descripción que aparece al hacer hover en la tarjeta */
 .description {
   font-size: 14px;
   margin-top: 10px;
@@ -92,20 +95,15 @@
   bottom: 0;
   left: 0;
   right: 0;
-  display: none;
-  z-index: 1;
+  display: none; /* Oculta por defecto */
+  z-index: 1; /* Colocar por encima de otras capas */
 }
 
+/* Mostrar la descripción al hacer hover en la tarjeta */
 .hotel-card:hover .description {
   display: block;
 }
 
-.button {
-  text-align: center;
-  margin-top: 5px;
-}
-
-/* Estilos adicionales para el botón de ver más */
 /* Estilos adicionales para el botón de ver más */
 .button {
   text-align: center;
@@ -114,7 +112,7 @@
 
 .button button {
   background-color: #007bff; /* Color azul */
-  color: #fff;
+  color: #fff; /* Texto en color blanco */
   border: none;
   padding: 8px 16px;
   border-radius: 20px;
@@ -128,8 +126,8 @@
 
 .button button:hover {
   background-color: #0056b3; /* Color azul oscuro al hacer hover */
-  transform: scale(1.02);
-  box-shadow: none;
+  transform: scale(1.02); /* Escala ligeramente al hacer hover */
+  box-shadow: none; /* Quita la sombra al hacer hover */
 }
 
 /* Efecto de escala sutil al hacer hover en la tarjeta */

@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./top-hotels-page.component.css'],
 })
 export class TopHotelsPageComponent {
+  // Propiedad para controlar la visibilidad de la descripción en las tarjetas de hotel
   showDescription = false;
+
+  // Datos de los hoteles
   hotels = [
     {
       name: 'Hotel A ⭐⭐',
@@ -264,14 +267,17 @@ export class TopHotelsPageComponent {
     },
   ];
 
-  isPopupOpen = false; // Agregar esta propiedad para controlar la apertura del popup
-  activeHotel: any; // Agregar esta propiedad para mantener el hotel activo para el popup
+  // Propiedades para controlar la apertura y el contenido del popup
+  isPopupOpen = false; // Indica si el popup está abierto o cerrado
+  activeHotel: any; // Guarda el hotel activo para mostrar en el popup
 
+  // Método para abrir el popup y mostrar los detalles del hotel seleccionado
   openPopup(hotel: any) {
     this.isPopupOpen = true;
     this.activeHotel = hotel;
   }
 
+  // Método para cerrar el popup
   closePopup() {
     this.isPopupOpen = false;
     this.activeHotel = null;
