@@ -1,3 +1,103 @@
 <app-main-layout>
-  <p>compare-page works!</p>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8">
+    <div class="flex space-x-4">
+      <!-- Título Hotel 1 -->
+      <div class="flex-1 text-center mt-10">
+        <h2 class="text-xl font-semibold mb-4">Hotel 1</h2>
+      </div>
+
+      <!-- Título Hotel 2 -->
+      <div class="flex-1 text-center mt-10">
+        <h2 class="text-xl font-semibold mb-4">Hotel 2</h2>
+      </div>
+    </div>
+
+    <div class="flex space-x-4">
+      <!-- Panel/Card Hotel 1 -->
+      <div class="flex-1 bg-white p-4 rounded shadow">
+        <ul>
+          <li
+            class="flex justify-between items-center"
+            *ngFor="let attribute of hotel1Attributes"
+          >
+            <span>{{ attribute.text }}</span>
+            <svg
+              *ngIf="attribute.isBetter; else notBetter1"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              class="h-6 w-6 text-green-500"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+            <ng-template #notBetter1>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="h-6 w-6 text-red-500"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Panel/Card Hotel 2 -->
+      <div class="flex-1 bg-white p-4 rounded shadow">
+        <ul>
+          <li
+            class="flex justify-between items-center"
+            *ngFor="let attribute of hotel2Attributes"
+          >
+            <span>{{ attribute.text }}</span>
+            <svg
+              *ngIf="attribute.isBetter; else notBetter2"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              class="h-6 w-6 text-green-500"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+            <ng-template #notBetter2>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="h-6 w-6 text-red-500"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </app-main-layout>
