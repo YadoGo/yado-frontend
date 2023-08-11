@@ -1,0 +1,43 @@
+<div class="popup-background" tabindex="0" role="dialog" aria-modal="true">
+  <div class="popup-container" tabindex="0">
+    <h2>{{ hotel.name }}</h2>
+    <img [src]="hotel.image" [alt]="hotel.name" class="popup-image" />
+    <p>{{ hotel.description }}</p>
+
+    <div class="info-columns">
+      <div class="info-column">
+        <p><strong>Dirección:</strong> {{ hotel.address }}</p>
+        <p>
+          <strong>Puntuación:</strong> {{ hotel.rating }}/10
+          {{ generateStars(hotel.rating) }}
+        </p>
+        <p>
+          <strong>Precio por noche:</strong> {{ hotel.price | currency: 'USD' }}
+        </p>
+      </div>
+
+      <div class="info-column">
+        <p><strong>Servicios:</strong></p>
+        <ul>
+          <li *ngFor="let service of hotel.services">
+            <span class="material-icons">{{ service.icon }}</span>
+            {{ service.name }}
+          </li>
+        </ul>
+        <p><strong>WiFi:</strong> {{ hotel.wifi ? '✔️' : '❌' }}</p>
+        <p>
+          <strong>Estacionamiento:</strong> {{ hotel.parking ? '✔️' : '❌' }}
+        </p>
+        <p><strong>Mascota:</strong> {{ hotel.petFriendly ? '✔️' : '❌' }}</p>
+      </div>
+    </div>
+
+    <button
+      (click)="closePopup.emit()"
+      (keydown)="closePopup.emit()"
+      tabindex="0"
+    >
+      Cerrar
+    </button>
+  </div>
+</div>
