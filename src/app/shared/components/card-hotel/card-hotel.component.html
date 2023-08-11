@@ -90,9 +90,12 @@
         <p class="text-xl font-bold">
           {{ price | currency: 'EUR' : 'symbol' }}
         </p>
-        <button class="btn bg-blue-600 hover:bg-blue-500 text-white">
+        <a
+          routerLink="/hotels/name-hotel"
+          class="btn bg-blue-600 hover:bg-blue-500 text-white"
+        >
           View Deal
-        </button>
+        </a>
       </div>
     </div>
   </div>

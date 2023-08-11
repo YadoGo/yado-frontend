@@ -24,6 +24,11 @@ import {
   ListHotelsPageComponent,
   MapHotelsComponent,
 } from './main/list-hotels';
+import {
+  DetailsHotelsPageComponent,
+  ImagesHotelComponent,
+} from './main/details-hotels';
+import { AvailableRatesComponent } from './main/details-hotels/components/available-rates';
 import { HotelDetailsPopupComponent } from './main/top-hotels/components/hotel-details-popup/hotel-details-popup.component';
 
 @NgModule({
@@ -43,9 +48,11 @@ import { HotelDetailsPopupComponent } from './main/top-hotels/components/hotel-d
     FiltersComponent,
     ListComponent,
     MapHotelsComponent,
+    DetailsHotelsPageComponent,
+    ImagesHotelComponent,
+    AvailableRatesComponent,
     HotelDetailsPopupComponent,
   ],
   imports: [CommonModule, RouterModule, SharedModule],
-  exports: [HotelDetailsPopupComponent],
 })
 export class ModulesModule {}
