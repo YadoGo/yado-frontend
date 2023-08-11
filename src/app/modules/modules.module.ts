@@ -10,6 +10,9 @@ import { AboutPageComponent } from './main/about';
 import { ComparePageComponent } from './main/compare';
 import { TopHotelsPageComponent } from './main/top-hotels';
 import { FiltersComponent, ListComponent, ListHotelsPageComponent, MapHotelsComponent } from './main/list-hotels';
+import { DetailsHotelsPageComponent } from './main/details-hotels';
+import { ImagesHotelComponent } from './main/details-hotels/components/images-hotel/images-hotel.component';
+import { AvailableRatesComponent } from './main/details-hotels/components/available-rates/available-rates.component';
 
 
 
@@ -31,7 +34,10 @@ import { FiltersComponent, ListComponent, ListHotelsPageComponent, MapHotelsComp
     ListHotelsPageComponent,
     FiltersComponent,
     ListComponent,
-    MapHotelsComponent
+    MapHotelsComponent,
+    DetailsHotelsPageComponent,
+    ImagesHotelComponent,
+    AvailableRatesComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,114 @@
+<div class="-m-1 flex flex-wrap md:-m-2 pt-6 hidden xl:flex">
+  <div class="flex w-1/2 flex-wrap">
+    <div class="w-1/2 p-1 md:p-2">
+      <img
+        alt="gallery"
+        class="block h-[192px] w-[288px] rounded-lg object-cover object-center"
+        src="https://source.unsplash.com/random/?city"
+        width="288"
+        height="192"
+      />
+    </div>
+
+    <div class="w-1/2 p-1 md:p-2">
+      <img
+        alt="gallery"
+        class="block h-[192px] w-[288px] rounded-lg object-cover object-center"
+        src="https://source.unsplash.com/random/?city"
+        width="288"
+        height="192"
+      />
+    </div>
+    <div class="w-full p-1 md:p-2">
+      <img
+        alt="gallery"
+        class="block h-[395] w-[592] rounded-lg object-cover object-center"
+        src="https://source.unsplash.com/random/?city"
+        width="592"
+        height="395"
+      />
+    </div>
+  </div>
+  <div class="flex w-1/2 flex-wrap">
+    <div class="w-full p-1 md:p-2">
+      <img
+        alt="gallery"
+        class="block max-h-[395px] max-w-[592px] rounded-lg object-cover object-center"
+        src="https://source.unsplash.com/random/?city"
+      />
+    </div>
+    <div class="w-1/2 p-1 md:p-2">
+      <img
+        alt="gallery"
+        class="block h-[192px] w-[288px] rounded-lg object-cover object-center"
+        src="https://source.unsplash.com/random/?city"
+        width="288"
+        height="192"
+      />
+    </div>
+    <div class="w-1/2 p-1 md:p-2">
+      <img
+        alt="gallery"
+        class="block h-[192px] w-[288px] rounded-lg object-cover object-center"
+        src="https://source.unsplash.com/random/?city"
+        width="288"
+        height="192"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="carousel w-full xl:hidden pt-6 rounded-md">
+  <div id="slide1" class="carousel-item relative w-full">
+    <img
+      src="https://source.unsplash.com/random/?city"
+      class="w-full"
+      alt="gallery"
+    />
+    <div
+      class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
+    >
+      <button (click)="navigateToSlide(4)" class="btn btn-circle">❮</button>
+      <button (click)="navigateToSlide(2)" class="btn btn-circle">❯</button>
+    </div>
+  </div>
+  <div id="slide2" class="carousel-item relative w-full">
+    <img
+      src="https://source.unsplash.com/random/?city"
+      class="w-full"
+      alt="gallery"
+    />
+    <div
+      class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
+    >
+      <button (click)="navigateToSlide(1)" class="btn btn-circle">❮</button>
+      <button (click)="navigateToSlide(3)" class="btn btn-circle">❯</button>
+    </div>
+  </div>
+  <div id="slide3" class="carousel-item relative w-full">
+    <img
+      src="https://source.unsplash.com/random/?city"
+      class="w-full"
+      alt="gallery"
+    />
+    <div
+      class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
+    >
+      <button (click)="navigateToSlide(2)" class="btn btn-circle">❮</button>
+      <button (click)="navigateToSlide(4)" class="btn btn-circle">❯</button>
+    </div>
+  </div>
+  <div id="slide4" class="carousel-item relative w-full">
+    <img
+      src="https://source.unsplash.com/random/?city"
+      class="w-full"
+      alt="gallery"
+    />
+    <div
+      class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
+    >
+      <button (click)="navigateToSlide(3)" class="btn btn-circle">❮</button>
+      <button (click)="navigateToSlide(1)" class="btn btn-circle">❯</button>
+    </div>
+  </div>
+</div>
