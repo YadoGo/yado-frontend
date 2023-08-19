@@ -97,3 +97,11 @@
   font-family: 'Poppins-ThinItalic';
   src: url('./assets/fonts/Poppins-ThinItalic.ttf') format('truetype');
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Poppins-SemiBold, Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-family: Poppins-Regular, Arial, Helvetica, sans-serif;
+}

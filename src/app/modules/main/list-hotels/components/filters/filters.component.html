@@ -1,0 +1,1906 @@
+<div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
+  <div class="fixed inset-0 bg-black bg-opacity-25"></div>
+  <div class="fixed inset-0 z-40 flex">
+    <div
+      class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl"
+    >
+      <div class="flex items-center justify-between px-4">
+        <h2 class="text-lg font-medium text-gray-900">Filters</h2>
+        <button
+          type="button"
+          class="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+        >
+          <span class="sr-only">Close menu</span>
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Filters -->
+      <form class="mt-4 border-t border-gray-200 px-6">
+        <div class="border-b border-gray-200 py-6">
+          <div
+            class="container-map p-12 flex justify-center items-center border border-gray-300 rounded bg-center"
+          >
+            <button
+              class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
+            >
+              Open map
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Center Distance -->
+        <div class="border-b border-gray-200 py-6">
+          <h3 class="-my-3 flow-root">
+            <div
+              type="button"
+              class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+              aria-controls="filter-section-1"
+              aria-expanded="false"
+            >
+              <span class="font-medium text-gray-900">Center distance</span>
+            </div>
+          </h3>
+          <div class="pt-6" id="filter-section-1">
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-less-than-1"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-less-than-1"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Less than 1 km</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-less-than-3"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-less-than-3"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Less than 3 km</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-less-than-5"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-less-than-5"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Less than 5 km</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Fun things to do -->
+        <div class="border-b border-gray-200 py-6">
+          <h3 class="-my-3 flow-root">
+            <div
+              type="button"
+              class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+              aria-controls="filter-section-1"
+              aria-expanded="false"
+            >
+              <span class="font-medium text-gray-900">Fun things to do</span>
+            </div>
+          </h3>
+          <div class="pt-6" id="filter-section-1">
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-bicycle-rental"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-bicycle-rental"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Bicycle rental</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-golf-course"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-golf-course"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Golf course</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-solarium"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-solarium"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Solarium</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-massage"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-massage"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Massage</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-sauna"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-sauna"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Sauna</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Cancellation Policy-->
+        <div class="border-b border-gray-200 py-6">
+          <h3 class="-my-3 flow-root">
+            <div
+              type="button"
+              class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+              aria-controls="filter-section-2"
+              aria-expanded="false"
+            >
+              <span class="font-medium text-gray-900">Cancellation policy</span>
+            </div>
+          </h3>
+          <div class="pt-6" id="filter-section-2">
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-free-cancellation"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-free-cancellation"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Free cancellation</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Meals -->
+        <div class="border-b border-gray-200 py-6">
+          <h3 class="-my-3 flow-root">
+            <div
+              type="button"
+              class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+              aria-controls="filter-section-1"
+              aria-expanded="false"
+            >
+              <span class="font-medium text-gray-900">Meals</span>
+            </div>
+          </h3>
+          <div class="pt-6" id="filter-section-1">
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-self-catering"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-self-catering"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Self catering</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-breakfast-included"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-breakfast-included"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Breakfast included</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-breakfast-and-dinner-included"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-breakfast-and-dinner-included"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Breakfast & dinner included</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Bed Prefernces -->
+        <div class="border-b border-gray-200 py-6">
+          <h3 class="-my-3 flow-root">
+            <div
+              type="button"
+              class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+              aria-controls="filter-section-1"
+              aria-expanded="false"
+            >
+              <span class="font-medium text-gray-900">Bed prefernce</span>
+            </div>
+          </h3>
+          <div class="pt-6" id="filter-section-1">
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-twin-beds"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-twin-beds"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Twin beds</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-double-bed"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-double-bed"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Double bed</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-large-double-bed"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-large-double-bed"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Large double bed</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-extra-large-double-bed"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-extra-large-double-bed"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Extra large double bed</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Reviews Score -->
+        <div class="border-b border-gray-200 py-6">
+          <h3 class="-my-3 flow-root">
+            <div
+              type="button"
+              class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+              aria-controls="filter-section-1"
+              aria-expanded="false"
+            >
+              <span class="font-medium text-gray-900">Review score</span>
+            </div>
+          </h3>
+          <div class="pt-6" id="filter-section-1">
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-superb-9"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-superb-9"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Superb: 9+</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-superb-8"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-superb-8"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Very good: 8+</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-superb-7"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-superb-7"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Good: 7+</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-superb-6"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-superb-6"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Pleasant: 6+</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Facilities -->
+        <div class="border-b border-gray-200 py-6">
+          <h3 class="-my-3 flow-root">
+            <div
+              type="button"
+              class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+              aria-controls="filter-section-1"
+              aria-expanded="false"
+            >
+              <span class="font-medium text-gray-900">Facilities</span>
+            </div>
+          </h3>
+          <div class="pt-6" id="filter-section-1">
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-non-smoking-romms"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-non-smoking-romms-"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Non-smoking rooms</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-very-good-wifi"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-category-18"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Very good Wifi</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-24-hour-front-desk"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-24-hour-front-desk"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >24-hour front desk</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-restaurant"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-restaurant"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Restaurant</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-swimming-pool"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-swimming-pool"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Swimming Pool</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-room-service"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-room-service"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Room service</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-family-rooms"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-family-rooms"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Family rooms</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-facilities-disabled-guests"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-facilities-disabled-guests"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Facilities for disabled guests</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-parking"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-parking"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Parking</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-fitness-centre"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-fitness-centre"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Fitness centre</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-airoport-schulettle"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-airoport-schulettle"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Airport schuttle</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-spa-and-wallness"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-spa-and-wallness"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Spa and wellness centre</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-pets-allowed"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-pets-allowed"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Pets allowed</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-patio"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-patio"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Patio</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Room Facilities -->
+        <div class="border-b border-gray-200 py-6">
+          <h3 class="-my-3 flow-root">
+            <div
+              type="button"
+              class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+              aria-controls="filter-section-1"
+              aria-expanded="false"
+            >
+              <span class="font-medium text-gray-900">Room Facilities</span>
+            </div>
+          </h3>
+          <div class="pt-6" id="filter-section-1">
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-kitchen"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-kitchen"
+                  class="ml-3 text-sm text-gray-60 cursor-pointer"
+                  >Kitchen/kitchenette</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-private-bahtroom"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-private-bahtroom"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Private bathroom</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-air-conditioning"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-air-conditioning"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Air conditioning</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-laptop-fiendly"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-laptop-fiendly"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Laptop-friendly workspace</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-bath"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-bath"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Bath</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-terrace"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-terrace"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Terrace</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-balcony"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-balcony"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Balcony</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-flat-screen-tv"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-flat-screen-tv"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Flat-screen TV</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-whasing-machine"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-whasing-machine"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Washing machine</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-soundproffing"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-soundproffing"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Soundproofing</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-view"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-view"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >View</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-sea-view"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-sea-view"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Sea View</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-mobile-private-pool"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-mobile-private-pool"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Private pool</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Property Accesibility -->
+        <div class="border-b border-gray-200 py-6">
+          <h3 class="-my-3 flow-root">
+            <div
+              type="button"
+              class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+              aria-controls="filter-section-1"
+              aria-expanded="false"
+            >
+              <span class="font-medium text-gray-900"
+                >Property accessibility</span
+              >
+            </div>
+          </h3>
+          <div class="pt-6" id="filter-section-1">
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <input
+                  id="filter-wheelchair-accesible"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-wheelchair-accesible"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Wheelchair accessible</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-toilet-whith-grab-rails"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-toilet-whith-grab-rails"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Toilet with grab rails</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-higher-level-toilet"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-higher-level-toilet"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Higher level toilet</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-lower-bathroom-sink"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-lower-bathroom-sink"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Lower bathroom sink</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-emergency-cord-in-bathroom"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-emergency-cord-in-bathroom"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Emergency cord in bathroom</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-visual-aids-braille"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-visual-aids-braille"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Visual aids braille</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="filter-visual-aids-tactile-signs"
+                  name="category[]"
+                  value="new-arrivals"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+                <label
+                  for="filter-visual-aids-tactile-signs"
+                  class="ml-3 text-sm text-gray-600 cursor-pointer"
+                  >Visual aids tactile signs</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<section aria-labelledby="products-heading" class="pb-24">
+  <div class="grid grid-cols-1 gap-x-3 gap-y-10">
+    <form class="hidden lg:block">
+      <div class="border-b border-gray-200 py-6">
+        <div
+          class="container-map p-12 flex justify-center items-center border border-gray-300 rounded bg-center"
+        >
+          <button
+            class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
+          >
+            Open map
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter Center Distance -->
+      <div class="border-b border-gray-200 py-6">
+        <h3 class="-my-3 flow-root">
+          <div
+            type="button"
+            class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+            aria-controls="filter-section-1"
+            aria-expanded="false"
+          >
+            <span class="font-medium text-gray-900">Center distance</span>
+          </div>
+        </h3>
+        <div class="pt-6" id="filter-section-1">
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <input
+                id="filter-less-than-1"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-less-than-1"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Less than 1 km</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-less-than-3"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-less-than-3"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Less than 3 km</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-less-than-5"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-less-than-5"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Less than 5 km</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Fun things to do -->
+      <div class="border-b border-gray-200 py-6">
+        <h3 class="-my-3 flow-root">
+          <div
+            type="button"
+            class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+            aria-controls="filter-section-1"
+            aria-expanded="false"
+          >
+            <span class="font-medium text-gray-900">Fun things to do</span>
+          </div>
+        </h3>
+        <div class="pt-6" id="filter-section-1">
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <input
+                id="filter-bicycle-rental"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-bicycle-rental"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Bicycle rental</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-golf-course"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-golf-course"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Golf course</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-solarium"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-solarium"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Solarium</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-massage"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-massage"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Massage</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-sauna"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-sauna"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Sauna</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Cancellation Policy-->
+      <div class="border-b border-gray-200 py-6">
+        <h3 class="-my-3 flow-root">
+          <div
+            type="button"
+            class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+            aria-controls="filter-section-2"
+            aria-expanded="false"
+          >
+            <span class="font-medium text-gray-900">Cancellation policy</span>
+          </div>
+        </h3>
+        <div class="pt-6" id="filter-section-2">
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <input
+                id="filter-free-cancellation"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-free-cancellation"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Free cancellation</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Meals -->
+      <div class="border-b border-gray-200 py-6">
+        <h3 class="-my-3 flow-root">
+          <div
+            type="button"
+            class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+            aria-controls="filter-section-1"
+            aria-expanded="false"
+          >
+            <span class="font-medium text-gray-900">Meals</span>
+          </div>
+        </h3>
+        <div class="pt-6" id="filter-section-1">
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <input
+                id="filter-self-catering"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-self-catering"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Self catering</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-breakfast-included"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-breakfast-included"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Breakfast included</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-breakfast-and-dinner-included"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-breakfast-and-dinner-included"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Breakfast & dinner included</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Bed Prefernces -->
+      <div class="border-b border-gray-200 py-6">
+        <h3 class="-my-3 flow-root">
+          <div
+            type="button"
+            class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+            aria-controls="filter-section-1"
+            aria-expanded="false"
+          >
+            <span class="font-medium text-gray-900">Bed prefernce</span>
+          </div>
+        </h3>
+        <div class="pt-6" id="filter-section-1">
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <input
+                id="filter-twin-beds"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-twin-beds"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Twin beds</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-double-bed"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-double-bed"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Double bed</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-large-double-bed"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-large-double-bed"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Large double bed</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-extra-large-double-bed"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-extra-large-double-bed"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Extra large double bed</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Reviews Score -->
+      <div class="border-b border-gray-200 py-6">
+        <h3 class="-my-3 flow-root">
+          <div
+            type="button"
+            class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+            aria-controls="filter-section-1"
+            aria-expanded="false"
+          >
+            <span class="font-medium text-gray-900">Review score</span>
+          </div>
+        </h3>
+        <div class="pt-6" id="filter-section-1">
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <input
+                id="filter-superb-9"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-superb-9"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Superb: 9+</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-superb-8"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-superb-8"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Very good: 8+</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-superb-7"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-superb-7"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Good: 7+</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-superb-6"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-superb-6"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Pleasant: 6+</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Facilities -->
+      <div class="border-b border-gray-200 py-6">
+        <h3 class="-my-3 flow-root">
+          <div
+            type="button"
+            class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+            aria-controls="filter-section-1"
+            aria-expanded="false"
+          >
+            <span class="font-medium text-gray-900">Facilities</span>
+          </div>
+        </h3>
+        <div class="pt-6" id="filter-section-1">
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <input
+                id="filter-non-smoking-romms"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-non-smoking-romms-"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Non-smoking rooms</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-very-good-wifi"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-category-18"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Very good Wifi</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-24-hour-front-desk"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-24-hour-front-desk"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >24-hour front desk</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-restaurant"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-restaurant"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Restaurant</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-swimming-pool"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-swimming-pool"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Swimming Pool</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-room-service"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-room-service"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Room service</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-family-rooms"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-family-rooms"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Family rooms</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-facilities-disabled-guests"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-facilities-disabled-guests"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Facilities for disabled guests</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-parking"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-parking"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Parking</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-fitness-centre"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-fitness-centre"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Fitness centre</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-airoport-schulettle"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-airoport-schulettle"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Airport schuttle</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-spa-and-wallness"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-spa-and-wallness"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Spa and wellness centre</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-pets-allowed"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-pets-allowed"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Pets allowed</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-patio"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-patio"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Patio</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Room Facilities -->
+      <div class="border-b border-gray-200 py-6">
+        <h3 class="-my-3 flow-root">
+          <div
+            type="button"
+            class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+            aria-controls="filter-section-1"
+            aria-expanded="false"
+          >
+            <span class="font-medium text-gray-900">Room Facilities</span>
+          </div>
+        </h3>
+        <div class="pt-6" id="filter-section-1">
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <input
+                id="filter-kitchen"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-kitchen"
+                class="ml-3 text-sm text-gray-60 cursor-pointer"
+                >Kitchen/kitchenette</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-private-bahtroom"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-private-bahtroom"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Private bathroom</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-air-conditioning"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-air-conditioning"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Air conditioning</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-laptop-fiendly"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-laptop-fiendly"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Laptop-friendly workspace</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-bath"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-bath"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Bath</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-terrace"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-terrace"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Terrace</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-balcony"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-balcony"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Balcony</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-flat-screen-tv"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-flat-screen-tv"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Flat-screen TV</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-whasing-machine"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-whasing-machine"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Washing machine</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-soundproffing"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-soundproffing"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Soundproofing</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-view"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-view"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >View</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-sea-view"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-sea-view"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Sea View</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-private-pool"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-private-pool"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Private pool</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Property Accesibility -->
+      <div class="border-b border-gray-200 py-6">
+        <h3 class="-my-3 flow-root">
+          <div
+            type="button"
+            class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
+            aria-controls="filter-section-1"
+            aria-expanded="false"
+          >
+            <span class="font-medium text-gray-900"
+              >Property accessibility</span
+            >
+          </div>
+        </h3>
+        <div class="pt-6" id="filter-section-1">
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <input
+                id="filter-wheelchair-accesible"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-wheelchair-accesible"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Wheelchair accessible</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-toilet-whith-grab-rails"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-toilet-whith-grab-rails"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Toilet with grab rails</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-higher-level-toilet"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-higher-level-toilet"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Higher level toilet</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-lower-bathroom-sink"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-lower-bathroom-sink"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Lower bathroom sink</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-emergency-cord-in-bathroom"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-emergency-cord-in-bathroom"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Emergency cord in bathroom</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-visual-aids-braille"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-visual-aids-braille"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Visual aids braille</label
+              >
+            </div>
+            <div class="flex items-center">
+              <input
+                id="filter-visual-aids-tactile-signs"
+                name="category[]"
+                value="new-arrivals"
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+              />
+              <label
+                for="filter-visual-aids-tactile-signs"
+                class="ml-3 text-sm text-gray-600 cursor-pointer"
+                >Visual aids tactile signs</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="lg:col-span-3"></div>
+  </div>
+</section>

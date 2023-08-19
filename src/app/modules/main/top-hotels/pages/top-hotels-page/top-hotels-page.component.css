@@ -1,0 +1,139 @@
+/* Estilos generales */
+.hotel-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  padding: 50px 0;
+}
+
+/* Estilos para el título y la descripción */
+.title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.title p {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Estilos para la lista de hoteles */
+.hotel-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Estilos para la tarjeta de hotel */
+.hotel-card {
+  position: relative;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  border-radius: 10px;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 1px solid #ddd;
+}
+
+.hotel-card img {
+  width: 150%;
+  height: 195px;
+  object-fit: cover;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.hotel-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hotel-title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-title h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.description {
+  font-size: 14px;
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  z-index: 1;
+}
+
+.hotel-card:hover .description {
+  display: block;
+}
+
+.button {
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Estilos adicionales para el botón de ver más */
+/* Estilos adicionales para el botón de ver más */
+.button {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.button button {
+  background-color: #007bff; /* Color azul */
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
+  font-size: 14px;
+}
+
+.button button:hover {
+  background-color: #0056b3; /* Color azul oscuro al hacer hover */
+  transform: scale(1.02);
+  box-shadow: none;
+}
+
+/* Efecto de escala sutil al hacer hover en la tarjeta */
+.card-hover:hover {
+  transform: scale(1.02);
+  box-shadow: none;
+}

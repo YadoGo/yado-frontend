@@ -1,0 +1,44 @@
+<app-main-layout>
+  <div class="hotel-list">
+    <div class="title">
+      <h2>Top Hoteles</h2>
+      <p>
+        Explora nuestra selección de los mejores hoteles para una experiencia
+        inolvidable. Estos hoteles ofrecen comodidad, lujo y servicio
+        excepcional. Ya sea que estés buscando una escapada romántica, unas
+        vacaciones en familia o un viaje de negocios, aquí encontrarás opciones
+        excepcionales.
+      </p>
+    </div>
+    <div class="hotel-card-list">
+      <div
+        class="hotel-card"
+        *ngFor="let hotel of hotels"
+        (mouseenter)="showDescription = true"
+        (mouseleave)="showDescription = false"
+        (click)="openPopup(hotel)"
+        (keydown.enter)="openPopup(hotel)"
+        tabindex="0"
+        role="button"
+      >
+        <div class="hotel-title">
+          <h3>{{ hotel.name }}</h3>
+        </div>
+        <img [src]="hotel.image" [alt]="hotel.name" />
+        <div class="description" *ngIf="showDescription">
+          <p>{{ hotel.description }}</p>
+          <div class="button">
+            <button (click)="openPopup(hotel)" ((keydown))="openPopup(hotel)">
+              Ver más información...
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-hotel-details-popup
+    *ngIf="isPopupOpen"
+    [hotel]="activeHotel"
+    (closePopup)="closePopup()"
+  ></app-hotel-details-popup>
+</app-main-layout>
