@@ -4,9 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfileSettingsService } from '../../services/profile-settings.service';
 import { UserDetails } from '@core/models/user/user-details/user-details.model';
 import { UserService } from '@core/services/user/user.service';
+import { UserState } from '@core/states/user.state';
 import { selectUser } from '@core/states/user.selectors';
 import { Store } from '@ngrx/store';
-import { UserState } from '@core/states/user.state';
 
 @Component({
   selector: 'app-profile-settings-page',

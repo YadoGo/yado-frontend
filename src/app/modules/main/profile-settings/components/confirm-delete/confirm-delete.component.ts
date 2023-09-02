@@ -3,7 +3,8 @@ import { ProfileSettingsService } from '../../services/profile-settings.service'
 import { Store } from '@ngrx/store';
 import { selectUserId } from '@core/states/user.selectors';
 import { Observable } from 'rxjs';
-import { deleteUser } from '@core/states/user.actions';
+import { UserService } from '@core/services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirm-delete',
@@ -16,6 +17,8 @@ export class ConfirmDeleteComponent {
   constructor(
     private profileSettingsService: ProfileSettingsService,
     private store: Store,
+    private userService: UserService,
+    private router: Router,
   ) {
     this.userId$ = this.store.select(selectUserId);
   }
@@ -26,7 +29,19 @@ export class ConfirmDeleteComponent {
 
   confirmDelete(): void {
     this.userId$.subscribe((userId) => {
-      this.store.dispatch(deleteUser({ userId }));
+      if (userId) {
+        this.userService.deleteUser(userId).subscribe(
+          () => {
+            localStorage.removeItem('token');
+            this.router.navigate(['/']).then(() => {
+              window.location.reload();
+            });
+          },
+          (error) => {
+            console.error('Error:', error);
+          },
+        );
+      }
     });
   }
 }
