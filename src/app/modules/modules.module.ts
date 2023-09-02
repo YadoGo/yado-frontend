@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
 
 import {
   AuthLayoutComponent,
@@ -30,6 +33,12 @@ import {
 } from './main/details-hotels';
 import { AvailableRatesComponent } from './main/details-hotels/components/available-rates';
 import { HotelDetailsPopupComponent } from './main/top-hotels/components/hotel-details-popup/hotel-details-popup.component';
+import {
+  ProfileSettingsPageComponent,
+  ConfirmDeleteComponent,
+  SuccessfullyUploadedComponent,
+} from './main/profile-settings';
+import { ErrorUploadedComponent } from './main/profile-settings/components/error-uploaded/error-uploaded.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +61,19 @@ import { HotelDetailsPopupComponent } from './main/top-hotels/components/hotel-d
     ImagesHotelComponent,
     AvailableRatesComponent,
     HotelDetailsPopupComponent,
+    ProfileSettingsPageComponent,
+    ConfirmDeleteComponent,
+    SuccessfullyUploadedComponent,
+    ErrorUploadedComponent,
   ],
-  imports: [CommonModule, RouterModule, SharedModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    StoreModule.forFeature('auth', {}),
+  ],
 })
 export class ModulesModule {}
