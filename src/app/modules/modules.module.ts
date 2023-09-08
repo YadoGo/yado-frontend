@@ -5,6 +5,7 @@ import { SharedModule } from '@shared/shared.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import {
   AuthLayoutComponent,
@@ -73,6 +74,7 @@ import { ErrorUploadedComponent } from './main/profile-settings/components/error
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    MatDialogModule,
     StoreModule.forFeature('auth', {}),
   ],
 })

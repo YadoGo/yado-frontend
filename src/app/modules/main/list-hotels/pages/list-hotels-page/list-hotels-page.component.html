@@ -111,8 +111,13 @@
       </div>
     </div>
     <div class="flex">
-      <app-filters class="w-1/4 p-4 app-filters" *ngIf="isFiltersExpanded" />
-      <app-list class="flex-1 p-4" />
+      <app-filters
+        class="w-1/4 p-4 app-filters"
+        *ngIf="isFiltersExpanded"
+        (isOpenMapChange)="receiveChangeMap($event)"
+      />
+      <app-list *ngIf="!isOpenMap" class="flex-1 p-4" />
+      <app-map-hotels *ngIf="isOpenMap" />
     </div>
   </div>
 </app-main-layout>

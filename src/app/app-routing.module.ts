@@ -9,7 +9,7 @@ import { HomePageComponent } from '@modules/main/home/pages';
 import { ListHotelsPageComponent } from '@modules/main/list-hotels';
 import { ProfileSettingsPageComponent } from '@modules/main/profile-settings';
 import { TopHotelsPageComponent } from '@modules/main/top-hotels';
-
+import { MapHotelsComponent } from '@modules/main/list-hotels/components/map-hotels/map-hotels.component';
 const routes: Routes = [
   {
     title: 'YADO',
@@ -48,6 +48,7 @@ const routes: Routes = [
     path: 'hotels/:city/:name-hotel',
     component: DetailsHotelsPageComponent,
   },
+  { path: 'map', component: MapHotelsComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

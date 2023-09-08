@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ModulesModule } from '@modules/modules.module';
 import { StoreModule } from '@ngrx/store';
 import { userReducer } from '@core/states/user.state';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +14,7 @@ import { userReducer } from '@core/states/user.state';
     BrowserModule,
     AppRoutingModule,
     ModulesModule,
+    MatDialogModule,
     StoreModule.forRoot({ user: userReducer }),
   ],
   providers: [],
