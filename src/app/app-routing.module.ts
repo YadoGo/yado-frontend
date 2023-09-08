@@ -10,6 +10,8 @@ import { ListHotelsPageComponent } from '@modules/main/list-hotels';
 import { ProfileSettingsPageComponent } from '@modules/main/profile-settings';
 import { TopHotelsPageComponent } from '@modules/main/top-hotels';
 import { MapHotelsComponent } from '@modules/main/list-hotels/components/map-hotels/map-hotels.component';
+import { UserProfileComponent } from '@modules/main/user-profile/pages/user-profile.component';
+
 const routes: Routes = [
   {
     title: 'YADO',
@@ -34,6 +36,16 @@ const routes: Routes = [
   { title: 'Compare · YADO', path: 'compare', component: ComparePageComponent },
   { title: 'Top · YADO', path: 'top', component: TopHotelsPageComponent },
   {
+    title: 'Profile · YADO',
+    path: 'user/:username',
+    component: UserProfileComponent,
+  },
+  {
+    title: 'Map Hotels · YADO',
+    path: 'map-hotels',
+    component: MapHotelsComponent,
+  },
+  {
     title: 'Settings · YADO',
     path: 'user/:username/settings',
     component: ProfileSettingsPageComponent,
@@ -48,7 +60,6 @@ const routes: Routes = [
     path: 'hotels/:city/:name-hotel',
     component: DetailsHotelsPageComponent,
   },
-  { path: 'map', component: MapHotelsComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

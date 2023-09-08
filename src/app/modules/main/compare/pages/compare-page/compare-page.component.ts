@@ -6,47 +6,57 @@ import { Component } from '@angular/core';
   styleUrls: ['./compare-page.component.css'],
 })
 export class ComparePageComponent {
-  hotel1Attributes = [
-    { text: 'Lavado de ropa gratis', isBetter: this.randomBetter() },
+  hotels: Hotel[] = [
     {
-      text: 'Fruta a disposición en la habitación',
-      isBetter: this.randomBetter(),
+      name: 'Hotel 1',
+      attributes: this.generateAttributes(),
+      imageUrl: 'https://via.placeholder.com/150',
     },
-    { text: 'Sitio bien comunicado', isBetter: this.randomBetter() },
-    { text: 'Admiten mascotas', isBetter: this.randomBetter() },
-    { text: 'Piscina', isBetter: this.randomBetter() },
-    { text: 'Sala de juegos', isBetter: this.randomBetter() },
-    { text: 'Restaurante interno', isBetter: this.randomBetter() },
-    { text: '2 baños', isBetter: this.randomBetter() },
-    { text: 'Admiten perros', isBetter: this.randomBetter() },
-    { text: 'Prohibido fumar', isBetter: this.randomBetter() },
-    { text: 'Desayuno incluido', isBetter: this.randomBetter() },
-    { text: 'Ducha con hidromasaje', isBetter: this.randomBetter() },
-    { text: 'Wi-Fi gratuito', isBetter: this.randomBetter() },
-    { text: 'Gimnasio', isBetter: this.randomBetter() },
   ];
 
-  hotel2Attributes = [
-    { text: 'Lavado de ropa gratis', isBetter: this.randomBetter() },
-    {
-      text: 'Fruta a disposición en la habitación',
-      isBetter: this.randomBetter(),
-    },
-    { text: 'Sitio bien comunicado', isBetter: this.randomBetter() },
-    { text: 'Admiten mascotas', isBetter: this.randomBetter() },
-    { text: 'Piscina', isBetter: this.randomBetter() },
-    { text: 'Sala de juegos', isBetter: this.randomBetter() },
-    { text: 'Restaurante interno', isBetter: this.randomBetter() },
-    { text: '2 baños', isBetter: this.randomBetter() },
-    { text: 'Admiten perros', isBetter: this.randomBetter() },
-    { text: 'Prohibido fumar', isBetter: this.randomBetter() },
-    { text: 'Desayuno incluido', isBetter: this.randomBetter() },
-    { text: 'Ducha con hidromasaje', isBetter: this.randomBetter() },
-    { text: 'Wi-Fi gratuito', isBetter: this.randomBetter() },
-    { text: 'Gimnasio', isBetter: this.randomBetter() },
-  ];
+  addHotel(): void {
+    if (this.hotels.length < 4) {
+      this.hotels.push({
+        name: `Hotel ${this.hotels.length + 1}`,
+        attributes: this.generateAttributes(),
+        imageUrl: 'https://via.placeholder.com/150',
+      });
+    }
+  }
+
+  generateAttributes(): HotelAttribute[] {
+    return [
+      { text: 'Piscina al aire libre', isBetter: this.randomBetter() },
+      { text: 'WiFi gratuito', isBetter: this.randomBetter() },
+      { text: 'Estacionamiento gratuito', isBetter: this.randomBetter() },
+      { text: 'Desayuno incluido', isBetter: this.randomBetter() },
+      { text: 'Gimnasio', isBetter: this.randomBetter() },
+      { text: 'Spa', isBetter: this.randomBetter() },
+      { text: 'Servicio de habitación 24/7', isBetter: this.randomBetter() },
+      { text: 'Bar en la azotea', isBetter: this.randomBetter() },
+      {
+        text: 'TV de pantalla plana en cada habitación',
+        isBetter: this.randomBetter(),
+      },
+      {
+        text: 'Transporte al aeropuerto gratuito',
+        isBetter: this.randomBetter(),
+      },
+    ];
+  }
 
   randomBetter(): boolean {
     return Math.random() > 0.5;
   }
+}
+
+interface HotelAttribute {
+  text: string;
+  isBetter: boolean;
+}
+
+export interface Hotel {
+  name: string;
+  attributes: HotelAttribute[];
+  imageUrl: string;
 }

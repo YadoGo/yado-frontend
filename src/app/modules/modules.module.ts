@@ -34,6 +34,7 @@ import {
 } from './main/details-hotels';
 import { AvailableRatesComponent } from './main/details-hotels/components/available-rates';
 import { HotelDetailsPopupComponent } from './main/top-hotels/components/hotel-details-popup/hotel-details-popup.component';
+
 import {
   ProfileSettingsPageComponent,
   ConfirmDeleteComponent,
