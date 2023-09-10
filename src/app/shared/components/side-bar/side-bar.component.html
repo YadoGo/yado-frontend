@@ -1,0 +1,209 @@
+<div
+  *ngIf="showElement"
+  class="relative z-40 lg:hidden"
+  role="dialog"
+  aria-modal="true"
+>
+  <div class="fixed inset-0 bg-black bg-opacity-25"></div>
+  <div class="fixed inset-0 z-40 flex">
+    <div
+      class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl mt-16"
+    >
+      <div class="flex items-center justify-between px-4">
+        <button
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400 ml-auto"
+          (click)="toggleElementVisibility()"
+        >
+          <span class="sr-only">Close menu</span>
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile -->
+      <div class="mt-8 px-6">
+        <div id="filter-section-1">
+          <ul role="list" class="-mx-2 space-y-1">
+            <li>
+              <a
+                routerLink="/owner"
+                routerLinkActive="bg-gray-50 text-blue-600"
+                [routerLinkActiveOptions]="{ exact: true }"
+                class="hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+              >
+                <svg
+                  class="h-6 w-6 shrink-0 group-hover:text-blue-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                  />
+                </svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                routerLink="/owner/hotels"
+                routerLinkActive="bg-gray-50 text-blue-600"
+                [routerLinkActiveOptions]="{ exact: true }"
+                class="hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+              >
+                <svg
+                  class="h-6 w-6 shrink-0 group-hover:text-blue-600"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
+                  />
+                </svg>
+
+                Hotels
+              </a>
+            </li>
+            <li>
+              <a
+                routerLink="/owner/reviews"
+                routerLinkActive="bg-gray-50 text-blue-600"
+                [routerLinkActiveOptions]="{ exact: true }"
+                class="hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+              >
+                <svg
+                  class="h-6 w-6 shrink-0 group-hover:text-blue-600"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"
+                  />
+                </svg>
+
+                Reviews
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Desktop -->
+<section aria-labelledby="products-heading" class="pb-24">
+  <div class="grid grid-cols-1 gap-x-3 gap-y-10">
+    <div class="hidden lg:block">
+      <div class="py-6">
+        <div id="filter-section-1">
+          <div class="space-y-4">
+            <ul role="list" class="-mx-2 space-y-1">
+              <li>
+                <a
+                  routerLink="/owner"
+                  routerLinkActive="bg-gray-50 text-blue-600"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  class="hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                >
+                  <svg
+                    class="h-6 w-6 shrink-0 group-hover:text-blue-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                    />
+                  </svg>
+                  Dashboard
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/owner/hotels"
+                  routerLinkActive="bg-gray-50 text-blue-600"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  class="hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                >
+                  <svg
+                    class="h-6 w-6 shrink-0 group-hover:text-blue-600"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
+                    />
+                  </svg>
+
+                  Hotels
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/owner/reviews"
+                  routerLinkActive="bg-gray-50 text-blue-600"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  class="hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                >
+                  <svg
+                    class="h-6 w-6 shrink-0 group-hover:text-blue-600"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"
+                    />
+                  </svg>
+
+                  Reviews
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

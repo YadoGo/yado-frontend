@@ -1,5 +1,4 @@
 <app-main-layout>
-  <!-- Buscador centrado horizontalmente -->
   <div
     class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 flex items-center justify-between"
   >
@@ -17,14 +16,11 @@
     </button>
   </div>
 
-  <!-- Tarjetas de Hoteles -->
   <div
     class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
   >
     <div *ngFor="let hotel of hotels" class="bg-white p-6 rounded shadow-md">
       <h2 class="text-2xl font-semibold mb-4">{{ hotel.name }}</h2>
-
-      <!-- Añade la imagen aquí -->
       <img
         [src]="hotel.imageUrl"
         alt="{{ hotel.name }}"

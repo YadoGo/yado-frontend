@@ -1,0 +1,11 @@
+<div
+  id="map"
+  class="sticky mt-10 top-24 left-4 w-[50%] h-[50%] md:w-[900px] md:h-[600px] overflow-hidden rounded-lg border-2 border-white shadow-md"
+></div>
+<div
+  id="popup"
+  class="mb-12 ml-5 bg-white rounded-lg shadow-lg w-[100%] h-[100%]"
+  *ngIf="showPopupContent"
+>
+  <app-popup-content-map [hotelData]="hotelData" *ngIf="hotelData" />
+</div>

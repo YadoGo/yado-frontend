@@ -5,5 +5,4 @@ export interface UserDetails {
   lastName: string;
   imageProfile: string;
   username: string;
-  role: number;
 }

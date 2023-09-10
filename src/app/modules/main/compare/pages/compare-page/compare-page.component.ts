@@ -50,6 +50,7 @@ export class ComparePageComponent {
   }
 }
 
+// TODO: Borrar estas interfaces
 interface HotelAttribute {
   text: string;
   isBetter: boolean;

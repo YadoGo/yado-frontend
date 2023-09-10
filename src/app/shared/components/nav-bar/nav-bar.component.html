@@ -34,8 +34,8 @@
       <a
         routerLink="/about"
         class="text-sm font-semibold leading-6 text-gray-900 btn-ghost px-2 py-1 rounded-md"
-        >About</a
-      >
+        >About
+      </a>
     </div>
     <div
       class="flex flex-1 items-center justify-end"
@@ -61,6 +61,10 @@
                 d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
               />
             </svg>
+            <span
+              *ngIf="showNotification"
+              class="badge badge-xs badge-primary indicator-item"
+            ></span>
           </div>
         </button>
         <div class="dropdown dropdown-end">
@@ -84,10 +88,33 @@
             tabindex="0"
             class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
+            <li
+              *ngIf="isHotelManager || isAdmin"
+              class="border-b border-slate-100"
+            >
+              <a [routerLink]="['/owner']">
+                My Hotels
+                <span
+                  *ngIf="showNotification"
+                  class="badge badge-sm badge-warning"
+                  >NEW</span
+                >
+              </a>
+            </li>
+            <li *ngIf="isAdmin">
+              <a [routerLink]="['/admin']">
+                Admin Panel
+                <span
+                  *ngIf="showNotification"
+                  class="badge badge-sm badge-warning"
+                  >NEW</span
+                >
+              </a>
+            </li>
             <li>
               <a [routerLink]="['/user', username$ | async]">Profile</a>
             </li>
-            <li>
+            <li class="border-b border-slate-100">
               <a [routerLink]="['/user', username$ | async, 'settings']"
                 >Settings</a
               >

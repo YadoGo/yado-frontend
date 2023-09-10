@@ -8,7 +8,6 @@ const initialState: UserDetails = {
   lastName: '',
   imageProfile: '',
   username: '',
-  role: 0,
 };
 
 export const setUser = createAction('[User] Set User', (user: UserDetails) => ({

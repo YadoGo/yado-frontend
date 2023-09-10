@@ -1,4 +1,4 @@
-/* CSS predeterminado de OpenLayers */
+/* Import OpenLayers */
 @import '~ol/ol.css';
 
 /* Import Tailwind and DaisyUI */
@@ -116,8 +116,4 @@ p {
 html,
 body {
   height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }

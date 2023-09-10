@@ -1,0 +1,84 @@
+<div>
+  <h2 class="text-base font-semibold leading-7 text-dark">
+    Become a Hotel Manager
+  </h2>
+  <p class="mt-1 text-sm leading-6 text-gray-400">
+    Effortlessly manage your properties by joining as a hotel manager and
+    uploading your accommodations.
+  </p>
+</div>
+
+<form
+  class="md:col-span-2"
+  [formGroup]="solicitudForm"
+  (ngSubmit)="submitRequest()"
+>
+  <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6">
+    <div class="col-span-full">
+      <div>
+        <label
+          for="applicationInfo"
+          class="block text-sm font-medium leading-6 text-gray-900"
+          >Tell us a bit about yourself and why we should accept you as a Hotel
+          Manager.
+        </label>
+        <div class="mt-2">
+          <textarea
+            rows="7"
+            name="applicationInfo"
+            id="applicationInfo"
+            formControlName="information"
+            class="block w-full rounded-md border-0 bg-blue-500/5 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+            placeholder="Example of information you could provide:
+- Who we are
+- Name of hotel(s)
+- Location
+- Customers
+(And any additional information you deem relevant). (Min. 250 characters, Max. 500 characters)"
+            style="resize: none"
+            (input)="updateCharacterCount()"
+          >
+          </textarea>
+          <div class="text-right text-sm text-gray-500 pt-1">
+            {{ characterCount }} / 500
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isSumbitForm" class="col-span-full mr-44 mt-4">
+    <app-success-message *ngIf="changesSavedSuccessfully">
+      Successfully submitted
+    </app-success-message>
+    <app-error-message *ngIf="errorOccurred">
+      <span slot="title">An error occurred while submitted.</span>
+      <span slot="content">
+        <ul role="list" class="list-disc space-y-1 pl-5">
+          <li
+            *ngIf="solicitudForm.controls['information'].hasError('required')"
+          >
+            Information is required.
+          </li>
+          <li
+            *ngIf="solicitudForm.controls['information'].hasError('minlength')"
+          >
+            Information must be at least 250 characters.
+          </li>
+          <li
+            *ngIf="solicitudForm.controls['information'].hasError('maxlength')"
+          >
+            Information must not exceed 500 characters.
+          </li>
+        </ul>
+      </span>
+    </app-error-message>
+  </div>
+  <div class="mt-8 flex">
+    <button
+      type="submit"
+      class="rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+    >
+      Submit
+    </button>
+  </div>
+</form>

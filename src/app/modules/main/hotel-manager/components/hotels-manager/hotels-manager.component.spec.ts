@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { HotelsManagerComponent } from './hotels-manager.component';
+
+describe('HotelsManagerComponent', () => {
+  let component: HotelsManagerComponent;
+  let fixture: ComponentFixture<HotelsManagerComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [HotelsManagerComponent],
+    });
+    fixture = TestBed.createComponent(HotelsManagerComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

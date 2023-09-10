@@ -5,7 +5,6 @@ import { SharedModule } from '@shared/shared.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { MatDialogModule } from '@angular/material/dialog';
 
 import {
   AuthLayoutComponent,
@@ -21,26 +20,28 @@ import {
 import { MainLayoutComponent } from './main/layouts';
 import { AboutPageComponent } from './main/about';
 import { ComparePageComponent } from './main/compare';
-import { TopHotelsPageComponent } from './main/top-hotels';
-import {
-  FiltersComponent,
-  ListComponent,
-  ListHotelsPageComponent,
-  MapHotelsComponent,
-} from './main/list-hotels';
+import { FiltersComponent, ListHotelsPageComponent } from './main/list-hotels';
 import {
   DetailsHotelsPageComponent,
   ImagesHotelComponent,
 } from './main/details-hotels';
 import { AvailableRatesComponent } from './main/details-hotels/components/available-rates';
-import { HotelDetailsPopupComponent } from './main/top-hotels/components/hotel-details-popup/hotel-details-popup.component';
-
 import {
   ProfileSettingsPageComponent,
   ConfirmDeleteComponent,
-  SuccessfullyUploadedComponent,
+  UserRoleRequestComponent,
+  DeleteAccountComponent,
+  EditAccountComponent,
+  ChangePasswordComponent,
 } from './main/profile-settings';
-import { ErrorUploadedComponent } from './main/profile-settings/components/error-uploaded/error-uploaded.component';
+import {
+  DashboardComponent,
+  HotelManagerPageComponent,
+  HotelsManagerComponent,
+  StatsComponent,
+} from './main/hotel-manager';
+import { AdminDashboardPageComponent } from './main/admin-dashboard';
+import { UserProfileComponent } from './main/user-profile';
 
 @NgModule({
   declarations: [
@@ -54,19 +55,23 @@ import { ErrorUploadedComponent } from './main/profile-settings/components/error
     AboutPageComponent,
     CtaMapComponent,
     ComparePageComponent,
-    TopHotelsPageComponent,
     ListHotelsPageComponent,
     FiltersComponent,
-    ListComponent,
-    MapHotelsComponent,
     DetailsHotelsPageComponent,
     ImagesHotelComponent,
     AvailableRatesComponent,
-    HotelDetailsPopupComponent,
     ProfileSettingsPageComponent,
     ConfirmDeleteComponent,
-    SuccessfullyUploadedComponent,
-    ErrorUploadedComponent,
+    HotelManagerPageComponent,
+    AdminDashboardPageComponent,
+    DashboardComponent,
+    StatsComponent,
+    HotelsManagerComponent,
+    UserRoleRequestComponent,
+    DeleteAccountComponent,
+    EditAccountComponent,
+    ChangePasswordComponent,
+    UserProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -75,7 +80,6 @@ import { ErrorUploadedComponent } from './main/profile-settings/components/error
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MatDialogModule,
     StoreModule.forFeature('auth', {}),
   ],
 })

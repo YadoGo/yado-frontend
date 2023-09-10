@@ -17,17 +17,32 @@ export class NavBarComponent implements OnInit {
   isMobileMenuOpen = false;
   isLoggedIn$: Observable<boolean>;
   username$!: Observable<string>;
+  userRoleId$!: Observable<number>;
+  isHotelManager = false;
+  isAdmin = false;
+  showNotification = false;
 
   constructor(
     private store: Store,
     private router: Router,
   ) {
     this.isLoggedIn$ = this.store.select(selectUserLoggedIn);
+
+    if (!localStorage.getItem('notificationShown')) {
+      this.showNotification = true;
+    }
   }
 
   ngOnInit(): void {
     this.isLoggedIn$ = this.store.select(selectUserLoggedIn);
     this.username$ = this.store.select(selectUsername);
+
+    const notificationShown = localStorage.getItem('notificationShown');
+
+    if (!notificationShown) {
+      this.showNotification = true;
+      localStorage.setItem('notificationShown', 'true');
+    }
   }
 
   logout(): void {

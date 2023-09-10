@@ -1,3 +1,5 @@
+export * from './change-password';
 export * from './confirm-delete';
-export * from './error-uploaded';
-export * from './successfully-uploaded';
+export * from './delete-account';
+export * from './edit-account';
+export * from './user-role-request';

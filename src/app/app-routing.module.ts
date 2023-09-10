@@ -6,11 +6,10 @@ import { AboutPageComponent } from '@modules/main/about';
 import { ComparePageComponent } from '@modules/main/compare';
 import { DetailsHotelsPageComponent } from '@modules/main/details-hotels';
 import { HomePageComponent } from '@modules/main/home/pages';
+import { HotelManagerPageComponent } from '@modules/main/hotel-manager';
 import { ListHotelsPageComponent } from '@modules/main/list-hotels';
 import { ProfileSettingsPageComponent } from '@modules/main/profile-settings';
-import { TopHotelsPageComponent } from '@modules/main/top-hotels';
-import { MapHotelsComponent } from '@modules/main/list-hotels/components/map-hotels/map-hotels.component';
-import { UserProfileComponent } from '@modules/main/user-profile/pages/user-profile.component';
+import { UserProfileComponent } from '@modules/main/user-profile';
 
 const routes: Routes = [
   {
@@ -34,20 +33,14 @@ const routes: Routes = [
   { path: 'register', redirectTo: 'auth/register', pathMatch: 'full' },
   { title: 'About · YADO', path: 'about', component: AboutPageComponent },
   { title: 'Compare · YADO', path: 'compare', component: ComparePageComponent },
-  { title: 'Top · YADO', path: 'top', component: TopHotelsPageComponent },
   {
     title: 'Profile · YADO',
     path: 'user/:username',
     component: UserProfileComponent,
   },
   {
-    title: 'Map Hotels · YADO',
-    path: 'map-hotels',
-    component: MapHotelsComponent,
-  },
-  {
     title: 'Settings · YADO',
-    path: 'user/:username/settings',
+    path: 'settings/profile',
     component: ProfileSettingsPageComponent,
   },
   {
@@ -59,6 +52,21 @@ const routes: Routes = [
     title: 'Name Hotel · YADO',
     path: 'hotels/:city/:name-hotel',
     component: DetailsHotelsPageComponent,
+  },
+  {
+    title: 'Dashboard · YADO',
+    path: 'owner',
+    component: HotelManagerPageComponent,
+  },
+  {
+    title: 'Hotels · YADO',
+    path: 'owner/hotels',
+    component: HotelManagerPageComponent,
+  },
+  {
+    title: 'Reviews · YADO',
+    path: 'owner/reviews',
+    component: HotelManagerPageComponent,
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

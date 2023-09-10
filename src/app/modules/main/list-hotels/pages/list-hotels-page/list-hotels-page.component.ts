@@ -33,6 +33,7 @@ export class ListHotelsPageComponent {
   toggleSort() {
     this.isSortExpanded = !this.isSortExpanded;
   }
+
   receiveChangeMap(value: boolean) {
     this.isOpenMap = value;
   }
