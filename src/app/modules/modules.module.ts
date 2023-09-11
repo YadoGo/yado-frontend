@@ -43,11 +43,9 @@ import {
 } from './main/hotel-manager';
 import { AdminDashboardPageComponent } from './main/admin-dashboard';
 import { UserProfileComponent } from './main/user-profile';
-import { NavBarComponent } from '@shared/components';
 
 @NgModule({
   declarations: [
-    NavBarComponent,
     AuthLayoutComponent,
     LoginPageComponent,
     RegisterPageComponent,
