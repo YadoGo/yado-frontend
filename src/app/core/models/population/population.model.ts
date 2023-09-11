@@ -1,5 +1,4 @@
-export class Population {
-  id!: number;
-  name!: string;
-  state_id!: number;
+export interface Population {
+  id: number;
+  name: string;
 }

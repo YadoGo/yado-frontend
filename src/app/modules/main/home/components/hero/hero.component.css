@@ -1,7 +1,18 @@
 .hero {
-  height: 50vh
+  height: 50vh;
 }
 
 .hero-content {
   width: 31em;
+}
+
+@media (max-width: 500px) {
+  .hero-content {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .card-body {
+    padding: 0;
+  }
 }

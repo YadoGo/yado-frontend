@@ -1,1 +1,2 @@
-export * from './hotel.model';
+export * from './hotel-summary';
+export * from './hotel';

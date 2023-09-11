@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HomePageComponent } from './home-page.component';
 
 describe('HomePageComponent', () => {
@@ -8,8 +7,9 @@ describe('HomePageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomePageComponent]
+      declarations: [HomePageComponent],
     });
+
     fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

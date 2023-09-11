@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
 
 import {
   AuthLayoutComponent,
@@ -17,22 +20,34 @@ import {
 import { MainLayoutComponent } from './main/layouts';
 import { AboutPageComponent } from './main/about';
 import { ComparePageComponent } from './main/compare';
-import { TopHotelsPageComponent } from './main/top-hotels';
-import {
-  FiltersComponent,
-  ListComponent,
-  ListHotelsPageComponent,
-  MapHotelsComponent,
-} from './main/list-hotels';
+import { FiltersComponent, ListHotelsPageComponent } from './main/list-hotels';
 import {
   DetailsHotelsPageComponent,
   ImagesHotelComponent,
 } from './main/details-hotels';
 import { AvailableRatesComponent } from './main/details-hotels/components/available-rates';
-import { HotelDetailsPopupComponent } from './main/top-hotels/components/hotel-details-popup/hotel-details-popup.component';
+import {
+  ProfileSettingsPageComponent,
+  ConfirmDeleteComponent,
+  UserRoleRequestComponent,
+  DeleteAccountComponent,
+  EditAccountComponent,
+  ChangePasswordComponent,
+  ProfileSettingsService,
+} from './main/profile-settings';
+import {
+  DashboardComponent,
+  HotelManagerPageComponent,
+  HotelsManagerComponent,
+  StatsComponent,
+} from './main/hotel-manager';
+import { AdminDashboardPageComponent } from './main/admin-dashboard';
+import { UserProfileComponent } from './main/user-profile';
+import { NavBarComponent } from '@shared/components';
 
 @NgModule({
   declarations: [
+    NavBarComponent,
     AuthLayoutComponent,
     LoginPageComponent,
     RegisterPageComponent,
@@ -43,16 +58,33 @@ import { HotelDetailsPopupComponent } from './main/top-hotels/components/hotel-d
     AboutPageComponent,
     CtaMapComponent,
     ComparePageComponent,
-    TopHotelsPageComponent,
     ListHotelsPageComponent,
     FiltersComponent,
-    ListComponent,
-    MapHotelsComponent,
     DetailsHotelsPageComponent,
     ImagesHotelComponent,
     AvailableRatesComponent,
-    HotelDetailsPopupComponent,
+    ProfileSettingsPageComponent,
+    ConfirmDeleteComponent,
+    HotelManagerPageComponent,
+    AdminDashboardPageComponent,
+    DashboardComponent,
+    StatsComponent,
+    HotelsManagerComponent,
+    UserRoleRequestComponent,
+    DeleteAccountComponent,
+    EditAccountComponent,
+    ChangePasswordComponent,
+    UserProfileComponent,
   ],
-  imports: [CommonModule, RouterModule, SharedModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    StoreModule.forFeature('auth', {}),
+  ],
+  providers: [ProfileSettingsService],
 })
 export class ModulesModule {}

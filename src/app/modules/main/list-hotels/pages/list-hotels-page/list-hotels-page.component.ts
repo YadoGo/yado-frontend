@@ -3,15 +3,15 @@ import { Component, HostListener } from '@angular/core';
 @Component({
   selector: 'app-list-hotels-page',
   templateUrl: './list-hotels-page.component.html',
-  styleUrls: ['./list-hotels-page.component.css']
+  styleUrls: ['./list-hotels-page.component.css'],
 })
-
 export class ListHotelsPageComponent {
   city = 'Barcelona';
-  country = 'Spain'
+  country = 'Spain';
 
   isFiltersExpanded = false;
   isSortExpanded = false;
+  isOpenMap = false;
 
   constructor() {
     this.checkWindowWidth();
@@ -32,5 +32,9 @@ export class ListHotelsPageComponent {
 
   toggleSort() {
     this.isSortExpanded = !this.isSortExpanded;
+  }
+
+  receiveChangeMap(value: boolean) {
+    this.isOpenMap = value;
   }
 }

@@ -1,10 +1,12 @@
+/* Import OpenLayers */
+@import '~ol/ol.css';
+
 /* Import Tailwind and DaisyUI */
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'daisyui/dist/full.css';
-
 
 /* Import Poopins Font */
 
@@ -98,10 +100,20 @@
   src: url('./assets/fonts/Poppins-ThinItalic.ttf') format('truetype');
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: Poppins-SemiBold, Arial, Helvetica, sans-serif;
 }
 
 p {
   font-family: Poppins-Regular, Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
 }

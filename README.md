@@ -1,27 +1,74 @@
-# Frontend
+# YADO - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
+## Index
 
-## Development server
+- [YADO - Frontend](#yado---frontend)
+  - [Index](#index)
+  - [Introduction](#introduction)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Features](#features)
+  - [Contribution](#contribution)
+  - [License](#license)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Introduction
 
-## Code scaffolding
+[YADO](https://github.com/YadoGo) is a frontend project based on Angular that allows users to authenticate to save favorite hotels and add new hotels. This project integrates with the [YADO - Backend](https://github.com/YadoGo/yado-backend) API, which is developed in ASP .NET Core. The main goal of YADO is to save time and money for travelers when searching for hotels. It gathers information from multiple hotel websites and provides users with a more efficient way to find cost-effective and suitable options for their travel needs.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Requirements
 
-## Build
+- [Node.js](https://nodejs.org/en/) installed on your system.
+- [Angular CLI](https://angular.io/cli) installed globally.
+- [pnpm](https://pnpm.io/) installed globally.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation
 
-## Running unit tests
+1. Clone this repository to your local machine.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+git clone https://github.com/YadoGo/yado-frontend.git
+```
 
-## Running end-to-end tests
+2. Navigate to the project directory.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+cd yado-frontend
+```
 
-## Further help
+3. Install project dependencies using pnpm.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+pnpm install
+```
+
+## Usage
+
+1. Start the development server.
+
+```bash
+ng serve
+```
+
+2. Open your browser and navigate to `http://localhost:4200/`. The application will automatically reload if you make changes to the source files.
+
+## Features
+
+- **Frontend Technology**: Angular
+- **Frontend Design**: [Tailwind CSS](https://tailwindui.com/) and [Daisy UI](https://daisyui.com/)
+- **Backend Technology**: ASP .NET Core ([YADO - Backend](https://github.com/YadoGo/yado-backend))
+- **License**: [MIT License](LICENSE) 
+
+## Contribution
+
+If you want to contribute to this project, follow these steps:
+
+1. Fork the repository.
+2. Create a branch for your new feature: `git checkout -b feature/awesome-feature`.
+3. Make your changes and commit: `git commit -m 'Add an awesome feature'`.
+4. Push your changes to your fork: `git push origin feature/awesome-feature`.
+5. Open a pull request in the main repository.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.

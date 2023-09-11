@@ -1,3 +1,48 @@
 <app-main-layout>
-  <p>compare-page works!</p>
+  <div
+    class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 flex items-center justify-between"
+  >
+    <input
+      class="border p-2 rounded"
+      type="text"
+      placeholder="Buscar hoteles..."
+    />
+    <button
+      class="ml-4 bg-blue-600 hover:bg-blue-600 text-white px-4 py-2 rounded"
+      (click)="addHotel()"
+      [disabled]="hotels.length >= 5"
+    >
+      Añadir hotel
+    </button>
+  </div>
+
+  <div
+    class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
+  >
+    <div *ngFor="let hotel of hotels" class="bg-white p-6 rounded shadow-md">
+      <h2 class="text-2xl font-semibold mb-4">{{ hotel.name }}</h2>
+      <img
+        [src]="hotel.imageUrl"
+        alt="{{ hotel.name }}"
+        class="w-full h-48 object-cover mb-4 rounded"
+      />
+
+      <ul class="mt-4 space-y-2">
+        <li
+          *ngFor="let attribute of hotel.attributes"
+          class="flex justify-between items-center"
+        >
+          <span>{{ attribute.text }}</span>
+          <span
+            *ngIf="attribute.isBetter; else notBetterIcon"
+            class="text-green-500"
+            >✓</span
+          >
+          <ng-template #notBetterIcon>
+            <span class="text-red-500">✗</span>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+  </div>
 </app-main-layout>

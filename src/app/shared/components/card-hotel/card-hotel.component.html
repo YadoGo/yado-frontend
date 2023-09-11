@@ -3,7 +3,7 @@
 >
   <figure class="w-full sm:w-80 h-60 overflow-hidden relative">
     <img
-      src="https://source.unsplash.com/random/?city"
+      [ngSrc]="hotel.name"
       alt="Citys Temp"
       class="object-cover w-30 sm:w-full h-64 sm:h-full"
       width="300"
@@ -40,13 +40,6 @@
           {{ hotel.name }}
         </h2>
         <div class="rating rating-xs">
-          <input
-            type="radio"
-            [id]="'rating-' + hotel.name + '-0'"
-            name="rating_{{ hotel.name }}"
-            class="rating-hidden cursor-default"
-            readonly
-          />
           <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
             <input
               type="radio"
@@ -58,7 +51,7 @@
             />
           </ng-container>
         </div>
-        <p class="text-xs font-bold pl-4">{{ hotel.address }}</p>
+        <p class="text-xs font-bold">{{ hotel.address }}</p>
       </div>
 
       <!-- cuando es grande -->
