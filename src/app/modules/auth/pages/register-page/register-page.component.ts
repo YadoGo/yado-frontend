@@ -36,7 +36,6 @@ export class RegisterPageComponent {
           containsSpecialCharacter,
         ],
       ],
-      roleId: [1, Validators.required],
     });
   }
 

@@ -18,11 +18,6 @@ export const selectUserId = createSelector(
   (state: UserState) => state.id,
 );
 
-// export const selectUserRoleId = createSelector(
-//   selectUserState,
-//   (state: UserState) => state.roleId,
-// );
-
 export const selectUserLoggedIn = createSelector(
   selectUserId,
   (userId: string) => !!userId,

@@ -115,9 +115,7 @@
               <a [routerLink]="['/user', username$ | async]">Profile</a>
             </li>
             <li class="border-b border-slate-100">
-              <a [routerLink]="['/user', username$ | async, 'settings']"
-                >Settings</a
-              >
+              <a [routerLink]="['/settings/profile']">Settings</a>
             </li>
             <li><button (click)="logout()">Logout</button></li>
           </ul>
