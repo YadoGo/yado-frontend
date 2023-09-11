@@ -33,6 +33,7 @@ import {
   DeleteAccountComponent,
   EditAccountComponent,
   ChangePasswordComponent,
+  ProfileSettingsService,
 } from './main/profile-settings';
 import {
   DashboardComponent,
@@ -42,9 +43,11 @@ import {
 } from './main/hotel-manager';
 import { AdminDashboardPageComponent } from './main/admin-dashboard';
 import { UserProfileComponent } from './main/user-profile';
+import { NavBarComponent } from '@shared/components';
 
 @NgModule({
   declarations: [
+    NavBarComponent,
     AuthLayoutComponent,
     LoginPageComponent,
     RegisterPageComponent,
@@ -82,5 +85,6 @@ import { UserProfileComponent } from './main/user-profile';
     HttpClientModule,
     StoreModule.forFeature('auth', {}),
   ],
+  providers: [ProfileSettingsService],
 })
 export class ModulesModule {}

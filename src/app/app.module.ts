@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { userReducer } from '@core/states/user.state';
 import { ModulesModule } from '@modules/modules.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +14,7 @@ import { ModulesModule } from '@modules/modules.module';
     BrowserModule,
     AppRoutingModule,
     ModulesModule,
+    HttpClientModule,
     StoreModule.forRoot({ user: userReducer }),
   ],
   providers: [],

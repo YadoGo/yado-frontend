@@ -1,45 +1,46 @@
 import { TestBed } from '@angular/core/testing';
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 
 describe('AuthGuard', () => {
   let guard: AuthGuard;
+  let router: Router;
+  let store: jasmine.SpyObj<Store>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-
-    // Inyectamos el guardia en el TestBed
+    store = jasmine.createSpyObj('Store', ['select']);
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
+      providers: [AuthGuard, { provide: Store, useValue: store }],
+    });
     guard = TestBed.inject(AuthGuard);
+    router = TestBed.inject(Router);
   });
 
   it('should be created', () => {
     expect(guard).toBeTruthy();
   });
 
-  it('should allow access if user is not logged in', () => {
-    const routeSnapshot: ActivatedRouteSnapshot = new ActivatedRouteSnapshot();
-    const stateSnapshot: RouterStateSnapshot =
-      jasmine.createSpyObj<RouterStateSnapshot>('RouterStateSnapshot', [
-        'toString',
-      ]);
-
+  it('should return true if there is no token or user ID', () => {
+    store.select.and.returnValue(of(''));
     spyOn(localStorage, 'getItem').and.returnValue(null);
 
-    expect(guard.canActivate(routeSnapshot, stateSnapshot)).toBeTrue();
+    guard.canActivate().subscribe((result) => {
+      expect(result).toBeTrue();
+    });
   });
 
-  it('should redirect to "/" if user is logged in', () => {
-    const routeSnapshot: ActivatedRouteSnapshot = new ActivatedRouteSnapshot();
-    const stateSnapshot: RouterStateSnapshot =
-      jasmine.createSpyObj<RouterStateSnapshot>('RouterStateSnapshot', [
-        'toString',
-      ]);
+  it('should navigate to "/" and return false if there is a token and user ID', () => {
+    store.select.and.returnValue(of('user123'));
+    spyOn(localStorage, 'getItem').and.returnValue('mockToken');
+    spyOn(router, 'navigate');
 
-    spyOn(localStorage, 'getItem').and.returnValue('someToken');
-
-    spyOn(guard['router'], 'navigate');
-
-    expect(guard.canActivate(routeSnapshot, stateSnapshot)).toBeFalse();
-    expect(guard['router'].navigate).toHaveBeenCalledWith(['/']);
+    guard.canActivate().subscribe((result) => {
+      expect(result).toBeFalse();
+      expect(router.navigate).toHaveBeenCalledWith(['/']);
+    });
   });
 });

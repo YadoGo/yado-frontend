@@ -1,33 +1,34 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { AuthService } from '@core/services/auth/auth.service';
 
 describe('AppComponent', () => {
-  beforeEach(() =>
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  let authService: AuthService;
+
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
       declarations: [AppComponent],
-    }),
-  );
+      providers: [AuthService],
+    });
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    authService = TestBed.inject(AuthService);
+  });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'frontend'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('frontend');
+  it('should set the title to "YADO"', () => {
+    expect(component.title).toBe('YADO');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'frontend app is running!',
-    );
+  it('should call initializeUserFromToken on ngOnInit', () => {
+    spyOn(authService, 'initializeUserFromToken');
+    component.ngOnInit();
+    expect(authService.initializeUserFromToken).toHaveBeenCalled();
   });
 });

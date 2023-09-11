@@ -1,4 +1,4 @@
-export class Population {
-  id!: number;
-  name!: string;
+export interface Population {
+  id: number;
+  name: string;
 }
