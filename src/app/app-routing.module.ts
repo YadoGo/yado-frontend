@@ -4,6 +4,7 @@ import { AuthGuard } from '@core/guards';
 import { LoginPageComponent, RegisterPageComponent } from '@modules/auth/pages';
 import { AboutPageComponent } from '@modules/main/about';
 import { ComparePageComponent } from '@modules/main/compare';
+import { ChampionsPageComponent } from '@modules/main/champions';
 import { DetailsHotelsPageComponent } from '@modules/main/details-hotels';
 import { HomePageComponent } from '@modules/main/home/pages';
 import { HotelManagerPageComponent } from '@modules/main/hotel-manager';
@@ -33,6 +34,11 @@ const routes: Routes = [
   { path: 'register', redirectTo: 'auth/register', pathMatch: 'full' },
   { title: 'About · YADO', path: 'about', component: AboutPageComponent },
   { title: 'Compare · YADO', path: 'compare', component: ComparePageComponent },
+  {
+    title: 'Champions · YADO',
+    path: 'champions',
+    component: ChampionsPageComponent,
+  },
   {
     title: 'Profile · YADO',
     path: 'user/:username',
