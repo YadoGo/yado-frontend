@@ -20,6 +20,7 @@ import {
 import { MainLayoutComponent } from './main/layouts';
 import { AboutPageComponent } from './main/about';
 import { ComparePageComponent } from './main/compare';
+import { ChampionsPageComponent } from './main/champions';
 import { FiltersComponent, ListHotelsPageComponent } from './main/list-hotels';
 import {
   DetailsHotelsPageComponent,
@@ -73,6 +74,7 @@ import { UserProfileComponent } from './main/user-profile';
     EditAccountComponent,
     ChangePasswordComponent,
     UserProfileComponent,
+    ChampionsPageComponent,
   ],
   imports: [
     CommonModule,
