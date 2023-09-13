@@ -2,11 +2,7 @@
   <div
     class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 flex items-center justify-between"
   >
-    <input
-      class="border p-2 rounded"
-      type="text"
-      placeholder="Buscar hoteles..."
-    />
+    <input class="border p-2 rounded" type="text" placeholder="Search..." />
   </div>
 
   <div class="flex items-center justify-center pt-12">
@@ -21,7 +17,7 @@
           <div class="flex justify-between items-center">
             <h2 class="text-3xl font-semibold mb-4">{{ hotel.name }}</h2>
             <button
-              class="p-2 mb-4 rounded hover:bg-red-600"
+              class="p-2 mb-4 rounded hover:bg-red-6F00"
               (click)="deleteHotel(i)"
             >
               <svg
@@ -101,7 +97,7 @@
             (click)="toggleExpand(i)"
             class="ver-mas-btn mt-2 sticky bottom-0 rounded-md hover:bg-white shadow"
           >
-            {{ hotels[i].isExpanded ? 'Ver menos' : 'Ver más' }}
+            {{ hotels[i].isExpanded ? 'See less' : 'See more' }}
           </button>
         </div>
         <div
