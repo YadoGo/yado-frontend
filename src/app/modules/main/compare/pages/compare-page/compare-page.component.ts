@@ -11,6 +11,7 @@ export class ComparePageComponent {
       name: 'Hotel 1',
       attributes: this.generateAttributes(),
       imageUrl: 'https://via.placeholder.com/150',
+      isExpanded: false,
     },
   ];
 
@@ -20,8 +21,17 @@ export class ComparePageComponent {
         name: `Hotel ${this.hotels.length + 1}`,
         attributes: this.generateAttributes(),
         imageUrl: 'https://via.placeholder.com/150',
+        isExpanded: false,
       });
     }
+  }
+
+  deleteHotel(index: number): void {
+    this.hotels.splice(index, 1);
+  }
+
+  toggleExpand(index: number): void {
+    this.hotels[index].isExpanded = !this.hotels[index].isExpanded;
   }
 
   generateAttributes(): HotelAttribute[] {
@@ -50,7 +60,6 @@ export class ComparePageComponent {
   }
 }
 
-// TODO: Borrar estas interfaces
 interface HotelAttribute {
   text: string;
   isBetter: boolean;
@@ -60,4 +69,5 @@ export interface Hotel {
   name: string;
   attributes: HotelAttribute[];
   imageUrl: string;
+  isExpanded: boolean;
 }
