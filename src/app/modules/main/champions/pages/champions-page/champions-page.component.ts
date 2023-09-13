@@ -18,6 +18,12 @@ export class ChampionsPageComponent implements OnInit {
     console.log('City:', cityName);
   }
 
+  onMatchCardKeydown(event: KeyboardEvent, match: Match) {
+    if (event.keyCode === 13) {
+      this.showCityName(match);
+    }
+  }
+
   ngOnInit() {
     this.fetchApiData();
   }

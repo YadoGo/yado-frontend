@@ -1,0 +1,70 @@
+<div class="container">
+  <h1 class="page-title">Champions League</h1>
+  <p class="page-description">
+    Welcome to Champions League Hotels, your reliable source to find the best
+    hotels and accommodations for enjoying the thrilling matches of the UEFA
+    Champions League. Our mission is to ensure that your experience watching
+    Champions League matches is unforgettable by providing you with a
+    thoughtfully curated selection of hotels near the stadiums with exceptional
+    amenities.
+  </p>
+  <p class="page-description">
+    To get started, select the match you want to attend, and we'll show you the
+    best hotels available for that match:
+  </p>
+  <ul class="match-list">
+    <li
+      *ngFor="let match of upcomingMatches.slice(0, visibleMatches)"
+      class="match-card"
+      (click)="showCityName(match)"
+      (keydown)="onMatchCardKeydown($event, match)"
+      tabindex="0"
+    >
+      <div class="team-info">
+        <div class="team">
+          <img
+            [src]="match.teams.home.logo"
+            alt="{{ match.teams.home.name }}"
+            class="team-logo"
+          />
+          <span class="team-name">{{ match.teams.home.name }}</span>
+        </div>
+        <p class="vs">vs</p>
+        <div class="team">
+          <img
+            [src]="match.teams.away.logo"
+            alt="{{ match.teams.away.name }}"
+            class="team-logo"
+          />
+          <span class="team-name">{{ match.teams.away.name }}</span>
+        </div>
+      </div>
+      <p class="match-details">
+        <strong>Date:</strong>
+        {{ match.fixture.date | date: 'dd/MM/yyyy HH:mm' }}
+        <br />
+        <strong>Stadium:</strong> {{ match.fixture.venue.name }} (
+        {{ match.fixture.venue.city }})
+      </p>
+      <ul class="attributes-list">
+        <li *ngFor="let attribute of match.attributes" class="attribute">
+          <span>{{ attribute.text }}</span>
+          <span
+            *ngIf="attribute.isBetter; else notBetterIcon"
+            class="better-icon"
+            >✓</span
+          >
+          <ng-template #notBetterIcon>
+            <span class="worse-icon">✗</span>
+          </ng-template>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow-md"
+    (click)="loadMore()"
+    tabindex="0"
+    aria-label="Ver más"
+  ></button>
+</div>
