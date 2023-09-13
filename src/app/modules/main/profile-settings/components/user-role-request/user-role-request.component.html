@@ -12,6 +12,7 @@
   class="md:col-span-2"
   [formGroup]="solicitudForm"
   (ngSubmit)="submitRequest()"
+  *ngIf="!isProgress"
 >
   <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6">
     <div class="col-span-full">
@@ -46,7 +47,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="isSumbitForm" class="col-span-full mr-44 mt-4">
+  <div *ngIf="isSubmitForm" class="col-span-full mr-44 mt-4">
     <app-success-message *ngIf="changesSavedSuccessfully">
       Successfully submitted
     </app-success-message>
@@ -82,3 +83,162 @@
     </button>
   </div>
 </form>
+
+<nav *ngIf="isProgress" aria-label="Progress" class="md:col-span-2">
+  <ol
+    role="list"
+    class="divide-y divide-gray-300 rounded-md border border-gray-300 md:inline-flex md:divide-y-0"
+  >
+    <li class="relative md:flex md:flex-1">
+      <div class="group flex w-full items-center">
+        <span class="flex items-center px-6 py-4 text-sm font-medium">
+          <span
+            class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-600"
+          >
+            <svg
+              class="h-6 w-6 text-white"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span class="ml-4 text-sm font-medium text-gray-600"
+            >Request Sent</span
+          >
+        </span>
+      </div>
+      <div
+        class="absolute right-0 top-0 hidden h-full w-5 md:block"
+        aria-hidden="true"
+      >
+        <svg
+          class="h-full w-full text-gray-300"
+          viewBox="0 0 22 80"
+          fill="none"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 -2L20 40L0 82"
+            vector-effect="non-scaling-stroke"
+            stroke="currentcolor"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    </li>
+    <li class="relative md:flex md:flex-1">
+      <div
+        class="flex items-center px-6 py-4 text-sm font-medium"
+        aria-current="step"
+        *ngIf="requestStatus === 'InPending'"
+      >
+        <span
+          class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-blue-600"
+        >
+          <span class="text-gray-600">02</span>
+        </span>
+        <span class="ml-4 text-sm font-medium text-gray-600"
+          >Pending Review</span
+        >
+      </div>
+      <div
+        class="flex items-center px-6 py-4 text-sm font-medium"
+        aria-current="step"
+        *ngIf="requestStatus !== 'InPending'"
+      >
+        <span
+          class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-600"
+        >
+          <svg
+            class="h-6 w-6 text-white"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span class="ml-4 text-sm font-medium text-gray-600"
+          >Pending Review</span
+        >
+      </div>
+      <div
+        class="absolute right-0 top-0 hidden h-full w-5 md:block"
+        aria-hidden="true"
+      >
+        <svg
+          class="h-full w-full text-gray-300"
+          viewBox="0 0 22 80"
+          fill="none"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 -2L20 40L0 82"
+            vector-effect="non-scaling-stroke"
+            stroke="currentcolor"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    </li>
+    <li class="relative md:flex md:flex-1">
+      <div class="group flex items-center">
+        <span class="flex items-center px-6 py-4 text-sm font-medium">
+          <span
+            class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-gray-300"
+            *ngIf="requestStatus === 'InPending'"
+          >
+            <span class="text-gray-500">03</span>
+          </span>
+          <span
+            class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-red-500"
+            *ngIf="requestStatus === 'Cancelled'"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="white"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </span>
+          <span
+            class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-600"
+            *ngIf="requestStatus === 'Completed'"
+          >
+            <svg
+              class="w-6 h-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span class="ml-4 text-sm font-medium">Status</span>
+        </span>
+      </div>
+    </li>
+  </ol>
+</nav>

@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'YOUR_API_BASE_URL',
-  apiKey: 'YOUR_API_KEY'
+  apiUrl: 'YOUR_API_URL',
+  championsApiUrl: 'YOUR_CHAMPIONS_API_URL',
+  championsApiKey: 'YOUR_CHAMPIONS_API_KEY',
 };
