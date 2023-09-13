@@ -12,6 +12,7 @@ export class ChampionsPageComponent implements OnInit {
   upcomingMatches: Match[] = [];
   datePipe = new DatePipe('en-US');
   visibleMatches = 20;
+  isLoading = false;
 
   showCityName(match: Match) {
     const cityName = match.fixture.venue.city;
