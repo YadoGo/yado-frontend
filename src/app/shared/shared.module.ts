@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
   CardHotelComponent,
@@ -31,7 +31,13 @@ import { PopupContentMapComponent } from './components/popup-content-map/popup-c
     MapHotelsComponent,
     PopupContentMapComponent,
   ],
-  imports: [CommonModule, RouterModule, FormsModule, NgOptimizedImage],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    NgOptimizedImage,
+    ReactiveFormsModule,
+  ],
   exports: [
     NavBarComponent,
     SearchComponent,

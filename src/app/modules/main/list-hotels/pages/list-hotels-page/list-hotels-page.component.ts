@@ -1,20 +1,62 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Hotel } from '@core/models';
+import { HotelService } from '@core/services/hotel/hotel.service';
+import { SearchService } from '@core/services/search/search.service';
 
 @Component({
   selector: 'app-list-hotels-page',
   templateUrl: './list-hotels-page.component.html',
   styleUrls: ['./list-hotels-page.component.css'],
 })
-export class ListHotelsPageComponent {
-  city = 'Barcelona';
-  country = 'Spain';
+export class ListHotelsPageComponent implements OnInit {
+  countryName!: string;
+  hotels?: Hotel[];
+  countryId?: number;
 
   isFiltersExpanded = false;
   isSortExpanded = false;
   isOpenMap = false;
 
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private hotelService: HotelService,
+    private searchService: SearchService,
+  ) {
     this.checkWindowWidth();
+  }
+
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
+      const formattedName = this.formatCountryName(params['city']);
+      this.countryName = formattedName;
+
+      this.searchService.searchCities(formattedName).subscribe((results) => {
+        if (results.length > 0) {
+          const country = results[0];
+          this.countryId = country.id;
+        }
+
+        if (this.countryId) {
+          console.log(this.countryId);
+
+          this.hotelService
+            .getHotelsByCountry(this.countryId, 1, 15)
+            .subscribe((data) => {
+              console.log(data);
+              this.hotels = data;
+            });
+        }
+      });
+    });
+  }
+
+  formatCountryName(name: string): string {
+    return name.replace(/%20/g, ' ');
+  }
+
+  getCountryIdFromName(name: string): number {
+    return parseInt(name, 10);
   }
 
   @HostListener('window:resize', ['$event'])
