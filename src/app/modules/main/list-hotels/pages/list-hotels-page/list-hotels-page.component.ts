@@ -38,12 +38,9 @@ export class ListHotelsPageComponent implements OnInit {
         }
 
         if (this.countryId) {
-          console.log(this.countryId);
-
           this.hotelService
             .getHotelsByCountry(this.countryId, 1, 15)
             .subscribe((data) => {
-              console.log(data);
               this.hotels = data;
             });
         }

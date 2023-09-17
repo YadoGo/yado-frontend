@@ -45,8 +45,7 @@ export class SearchComponent {
 
   searchCities(query: string) {
     if (query.startsWith('hotel')) {
-      // Realizar búsqueda de hoteles relacionados
-      // Puedes agregar lógica para buscar hoteles aquí usando el servicio apropiado
+      // Hoteles
     } else {
       this.searchService.searchCities(query).subscribe(
         (results) => {
@@ -57,10 +56,6 @@ export class SearchComponent {
           } else {
             this.selectedResult = null;
           }
-
-          console.log(this.selectedResult);
-
-          console.log('Resultados de búsqueda:', results);
         },
         (error) => {
           console.error('Error searching cities:', error);

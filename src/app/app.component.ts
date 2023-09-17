@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@core/services/auth/auth.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +14,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.authService.initializeUserFromToken();
+    AOS.init();
+    window.addEventListener('load', AOS.refresh);
   }
 }
