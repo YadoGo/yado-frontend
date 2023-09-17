@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = environment.apiUrl;
+  private apiUrl = environment.apiBaseUrl;
 
   constructor(
     private http: HttpClient,

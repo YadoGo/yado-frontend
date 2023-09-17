@@ -4,7 +4,6 @@ import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import XYZ from 'ol/source/XYZ';
-import Overlay from 'ol/Overlay';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import { fromLonLat } from 'ol/proj';
@@ -27,16 +26,7 @@ export class MapHotelsComponent implements OnInit {
     id: number;
   }[] = [];
 
-  hotelData: {
-    imagePath: string;
-    name: string;
-    stars: number;
-  } | null = null;
-
   private map!: Map;
-  private popup!: Overlay;
-  showPopupContent = false;
-  popupContent = '';
 
   constructor(
     private elementRef: ElementRef,
@@ -49,50 +39,11 @@ export class MapHotelsComponent implements OnInit {
         this.hotels = data;
         this.initMap();
         this.addMarkers();
-
-        this.map.on('pointermove', this.showPopup.bind(this));
       },
       (error) => {
         console.error('Error fetching hotel data', error);
       },
     );
-  }
-
-  private showPopup(event: any): void {
-    this.map.forEachFeatureAtPixel(
-      event.pixel,
-      (feature) => {
-        const geometry = feature.getGeometry();
-
-        if (geometry instanceof Point) {
-          const coord = geometry.getCoordinates();
-
-          const hotelData = this.hotels.find((hotel) => {
-            const hotelCoord = fromLonLat([hotel.lon, hotel.lat]);
-            return hotelCoord[0] === coord[0] && hotelCoord[1] === coord[1];
-          });
-
-          if (hotelData) {
-            this.hotelData = {
-              imagePath: 'assets/images/map/hotel_sample.jpg',
-              name: hotelData.name,
-              stars: hotelData.stars,
-            };
-            this.showPopupContent = true;
-            this.popup.setPosition(coord);
-          } else {
-            this.showPopupContent = false;
-          }
-        }
-      },
-      {
-        hitTolerance: 1,
-      },
-    );
-
-    if (!this.map.hasFeatureAtPixel(event.pixel)) {
-      this.showPopupContent = false;
-    }
   }
 
   private initMap(): void {
@@ -114,13 +65,6 @@ export class MapHotelsComponent implements OnInit {
       }),
       controls: [],
     });
-
-    this.popup = new Overlay({
-      element: this.elementRef.nativeElement.querySelector('#popup'),
-      positioning: 'bottom-center',
-      stopEvent: false,
-    });
-    this.map.addOverlay(this.popup);
   }
 
   private addMarkers(): void {
