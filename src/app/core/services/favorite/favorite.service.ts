@@ -4,7 +4,7 @@ import {
   HttpHeaders,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { environment } from '@environments/environment';
+import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ApiResponse, Favorite, FavoriteExistsResponse } from '@core/models';
@@ -61,7 +61,6 @@ export class FavoriteService {
     hotelId: string,
   ): Observable<FavoriteExistsResponse> {
     const headers = this.createHeaders();
-    console.log(userId, hotelId);
 
     return this.http
       .get<FavoriteExistsResponse>(

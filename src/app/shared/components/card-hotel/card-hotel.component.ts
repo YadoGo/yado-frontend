@@ -6,6 +6,7 @@ import { FavoriteService } from '@core/services/favorite/favorite.service';
 import { selectUserId } from '@core/states/user.selectors';
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs';
+import { SearchService } from '@core/services/search/search.service';
 
 @Component({
   selector: 'app-card-hotel',
@@ -14,17 +15,19 @@ import { take } from 'rxjs';
 })
 export class CardHotelComponent implements OnInit {
   @Input() hotel!: Hotel;
-  reviewCount!: number;
-  averageRating!: string;
+  reviewCount = 0;
+  averageRating = '0.0';
   userId: string | undefined;
   price = 0;
   isFavorite = false;
+  cityName!: string;
 
   constructor(
     private router: Router,
     private store: Store,
     private reviewService: ReviewService,
     private favoriteService: FavoriteService,
+    private searchService: SearchService,
   ) {
     this.store.select(selectUserId).subscribe((userId) => {
       this.userId = userId;
@@ -60,8 +63,6 @@ export class CardHotelComponent implements OnInit {
       return;
     }
 
-    console.log('Toggling favorite for hotelId:', this.hotel.id);
-
     if (this.isFavorite) {
       this.favoriteService
         .removeFavorites({ userId: this.userId, hotelId: this.hotel.id })
@@ -95,7 +96,18 @@ export class CardHotelComponent implements OnInit {
   }
 
   redirectToHotelDetails() {
-    const nameHotel = this.hotel.name;
-    this.router.navigate(['/hotels', 'city', nameHotel]);
+    this.searchService.getPopulationNameById(this.hotel.populationId).subscribe(
+      (response) => {
+        if (response) {
+          this.cityName = response;
+          this.router.navigate(['/hotels', this.cityName, this.hotel.id]);
+        } else {
+          console.error('Error: No response from server');
+        }
+      },
+      (error) => {
+        console.error('Error al obtener datos de población:', error);
+      },
+    );
   }
 }

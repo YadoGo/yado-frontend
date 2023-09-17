@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { environment } from '@environments/environment';
+import { environment } from 'src/environments/environment';
 import { Match } from '@core/models/champions/match/match.model';
 
 @Component({

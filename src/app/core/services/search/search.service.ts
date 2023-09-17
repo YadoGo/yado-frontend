@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import {
+  catchError,
   debounceTime,
   distinctUntilChanged,
   filter,
   map,
 } from 'rxjs/operators';
-import { environment } from '@environments/environment';
+import { environment } from 'src/environments/environment';
 import { Population } from '@core/models';
 
 @Injectable({
@@ -29,5 +30,12 @@ export class SearchService {
         filter(() => query.length >= 3),
         map((results) => results.slice(0, 5)),
       );
+  }
+
+  getPopulationNameById(id: number): Observable<string | null> {
+    return this.http.get(
+      `${this.apiUrl}/api/populations/population-name/${id}`,
+      { responseType: 'text' },
+    );
   }
 }

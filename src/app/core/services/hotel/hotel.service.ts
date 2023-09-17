@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '@environments/environment';
+import { environment } from 'src/environments/environment';
+import { Hotel } from '@core/models';
 
 @Injectable({
   providedIn: 'root',
@@ -22,5 +23,10 @@ export class HotelService {
 
   getHotels(): Observable<any> {
     return this.http.get('assets/data/hotels.json');
+  }
+
+  getHotelById(hotelId: string): Observable<Hotel> {
+    const url = `${this.apiUrl}/api/hotels/${hotelId}`;
+    return this.http.get<Hotel>(url);
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserDetails } from '@core/models/user/user-details/user-details.model';
-import { environment } from '@environments/environment';
+import { environment } from 'src/environments/environment';
 import { UserChangePassword } from '@core/models';
 
 @Injectable({
