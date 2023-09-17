@@ -55,8 +55,8 @@ const routes: Routes = [
     component: ListHotelsPageComponent,
   },
   {
-    title: 'Name Hotel · YADO',
-    path: 'hotels/:city/:name-hotel',
+    title: 'Hotel · YADO',
+    path: 'hotels/:city/:hotel-id',
     component: DetailsHotelsPageComponent,
   },
   {

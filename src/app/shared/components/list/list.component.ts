@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Hotel } from '@core/models';
 
 @Component({
   selector: 'app-list',
@@ -6,9 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent {
-  hotels = [];
-
-  currentPage = 1;
-  hotelsPerPage = 15;
-  totalHotels!: number;
+  @Input() hotels?: Hotel[];
 }

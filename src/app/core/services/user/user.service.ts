@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserDetails } from '@core/models/user/user-details/user-details.model';
-import { environment } from '@environments/environment';
+import { environment } from 'src/environments/environment';
+import { UserChangePassword } from '@core/models';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,7 @@ export class UserService {
 
     return this.http.put<UserDetails>(url, user, { headers }).pipe(
       catchError((error) => {
-        console.error('Error en la solicitud PUT:', error);
+        console.error('Error PUT:', error);
         throw error;
       }),
     );
@@ -42,7 +43,26 @@ export class UserService {
 
     return this.http.delete<void>(url, { headers }).pipe(
       catchError((error) => {
-        console.error('Error en la solicitud DELETE:', error);
+        console.error('Error DELETE:', error);
+        throw error;
+      }),
+    );
+  }
+
+  changePassword(
+    userId: string,
+    changePassword: UserChangePassword,
+  ): Observable<void> {
+    const url = `${this.apiUrl}/api/users/${userId}/change-password`;
+    const token = localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.post<void>(url, changePassword, { headers }).pipe(
+      catchError((error) => {
+        console.error('Error POST:', error);
         throw error;
       }),
     );

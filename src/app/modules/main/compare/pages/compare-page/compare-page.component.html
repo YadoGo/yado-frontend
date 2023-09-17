@@ -1,10 +1,14 @@
 <app-main-layout>
+  <!-- Buscador centrado horizontalmente -->
   <div
     class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 flex items-center justify-between"
   >
-    <input class="border p-2 rounded" type="text" placeholder="Search..." />
+    <input
+      class="border p-2 rounded"
+      type="text"
+      placeholder="Buscar hoteles..."
+    />
   </div>
-
   <div class="flex items-center justify-center pt-12">
     <div class="flex gap-8 flex-wrap items-center">
       <!-- Lista de hoteles -->
@@ -17,7 +21,7 @@
           <div class="flex justify-between items-center">
             <h2 class="text-3xl font-semibold mb-4">{{ hotel.name }}</h2>
             <button
-              class="p-2 mb-4 rounded hover:bg-red-6F00"
+              class="p-2 mb-4 rounded hover:bg-red-600"
               (click)="deleteHotel(i)"
             >
               <svg
@@ -95,9 +99,9 @@
 
           <button
             (click)="toggleExpand(i)"
-            class="ver-mas-btn mt-2 sticky bottom-0 rounded-md hover:bg-white shadow"
+            class="ver-mas-btn mt-4 sticky bottom-0 transform z-50 px-4"
           >
-            {{ hotels[i].isExpanded ? 'See less' : 'See more' }}
+            {{ hotels[i].isExpanded ? 'Ver menos' : 'Ver más' }}
           </button>
         </div>
         <div
@@ -107,11 +111,11 @@
 
       <!-- Carta adicional para añadir un nuevo hotel -->
       <div
-        *ngIf="hotels.length < 4"
-        class="bg-white border-2 rounded shadow-md relative flex items-center justify-center w-40 h-40"
+        class="bg-white rounded relative flex items-center justify-center w-40 h-40 hover:bg-gray-300 rounded-full"
       >
         <button
-          class="tooltip text-6xl text-black opacity-50 rounded-full hover:opacity-100"
+          class="text-6xl text-black opacity-50 tooltip tooltip-dark transition pointer"
+          *ngIf="hotels.length < 4"
           data-tip="Add hotel!"
           (click)="addHotel()"
         >

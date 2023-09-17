@@ -3,9 +3,10 @@
 >
   <figure class="w-full sm:w-80 h-60 overflow-hidden relative">
     <img
-      [ngSrc]="hotel.name"
-      alt="Citys Temp"
-      class="object-cover w-30 sm:w-full h-64 sm:h-full"
+      src="tempImgCardHotel"
+      (error)="handleImageError($event)"
+      alt="Image Hotel"
+      class="object-cover w-full sm:w-full h-64 sm:h-full"
       width="300"
       height="500"
     />
@@ -16,15 +17,15 @@
         viewBox="0 0 24 24"
         stroke-width="1.5"
         class="w-8 h-8 cursor-pointer {{
-          heartHover ? 'text-red-500/50' : 'text-white opacity-80'
-        }} "
-        (click)="toggleHeart()"
+          isFavorite ? 'text-red-500/50' : 'text-white opacity-80'
+        }}"
+        (click)="toggleFavorite()"
       >
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
-          [attr.fill]="heartHover ? 'red' : ''"
-          [attr.stroke]="heartHover ? 'red' : 'white'"
+          [attr.fill]="isFavorite ? 'red' : ''"
+          [attr.stroke]="isFavorite ? 'red' : 'white'"
           d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
         />
       </svg>
@@ -36,6 +37,9 @@
       <div class="flex flex-col">
         <h2
           class="card-title whitespace-normal cursor-pointer hover:underline hover:decoration-solid"
+          (click)="redirectToHotelDetails()"
+          (keydown.enter)="redirectToHotelDetails()"
+          tabindex="0"
         >
           {{ hotel.name }}
         </h2>
@@ -58,37 +62,37 @@
       <div class="hidden lg:flex flex-row">
         <div class="flex-col pr-4">
           <p class="text-md font-bold">Very good</p>
-          <p class="text-xs font-bold">000 reviews</p>
+          <p class="text-xs font-bold">{{ reviewCount }} reviews</p>
         </div>
         <div class="bg-black rounded-md text-white px-4 py-2 h-10">
-          {{ number | number: '1.1-1' }}
+          {{ averageRating | number: '1.1-1' }}
         </div>
       </div>
     </div>
 
-    <p>{{ hotel.description }}</p>
     <div class="lg:hidden">
       <div class="absolute flex flex-row bottom-0 mb-4 mr-4">
         <div class="flex-col pr-4">
           <p class="text-md font-bold">Very good</p>
-          <p class="text-xs font-bold">000 reviews</p>
+          <p class="text-xs font-bold">{{ reviewCount }} reviews</p>
         </div>
         <div class="bg-black rounded-md text-white px-4 py-2 h-10">
-          {{ number | number: '1.1-1' }}
+          {{ averageRating | number: '1.1-1' }}
         </div>
       </div>
     </div>
     <div class="absolute bottom-0 right-0 mb-4 mr-4">
       <div>
         <p class="text-xl font-bold">
-          {{ price | currency: 'EUR' : 'symbol' }}
+          {{ price | currency: '$' : 'symbol' }}
         </p>
-        <a
-          routerLink="/hotels/name-hotel"
+        <button
+          type="submit"
           class="btn bg-blue-600 hover:bg-blue-500 text-white"
+          (click)="redirectToHotelDetails()"
         >
           View Deal
-        </a>
+        </button>
       </div>
     </div>
   </div>

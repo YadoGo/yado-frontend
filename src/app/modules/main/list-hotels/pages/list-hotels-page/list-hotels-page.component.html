@@ -4,7 +4,7 @@
       class="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-16"
     >
       <h2 class="text-3xl font-bold tracking-tight text-gray-900">
-        {{ city }}, {{ country }}
+        {{ countryName }}
       </h2>
 
       <div class="flex items-center">
@@ -116,7 +116,11 @@
         *ngIf="isFiltersExpanded"
         (isOpenMapChange)="receiveChangeMap($event)"
       />
-      <app-list *ngIf="!isOpenMap" class="flex-1 p-4" />
+      <app-list
+        *ngIf="!isOpenMap"
+        class="flex-1 p-4"
+        [hotels]="hotels"
+      ></app-list>
       <app-map-hotels *ngIf="isOpenMap" />
     </div>
   </div>

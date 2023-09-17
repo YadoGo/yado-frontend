@@ -1,1 +1,4 @@
-export class Favorite {}
+export interface Favorite {
+  userId: string;
+  hotelId: string;
+}
