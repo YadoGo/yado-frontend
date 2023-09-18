@@ -1,6 +1,11 @@
 <div
   id="map"
-  class="sticky mt-10 top-24 left-4 w-[50%] h-[50%] md:w-[900px] md:h-[600px] overflow-hidden rounded-lg border-2 border-white shadow-md"
+  [class]="
+    'sticky left-4 overflow-hidden rounded-lg border-2 border-white shadow-md ' +
+    (size === 'large'
+      ? 'w-full h-64'
+      : 'h-[50%] md:w-[900px] md:h-[600px] top-24 mt-10')
+  "
 ></div>
 <div
   id="popup"

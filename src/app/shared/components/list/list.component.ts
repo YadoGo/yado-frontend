@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Hotel } from '@core/models';
+import { HotelSummary } from '@core/models';
 
 @Component({
   selector: 'app-list',
@@ -7,5 +7,5 @@ import { Hotel } from '@core/models';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent {
-  @Input() hotels?: Hotel[];
+  @Input() hotels?: HotelSummary[];
 }

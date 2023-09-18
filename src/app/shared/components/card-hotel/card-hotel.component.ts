@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { take } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { Hotel } from '@core/models';
+import { selectUserId } from '@core/states/user.selectors';
 import { ReviewService } from '@core/services/review/review.service';
 import { FavoriteService } from '@core/services/favorite/favorite.service';
-import { selectUserId } from '@core/states/user.selectors';
-import { Store } from '@ngrx/store';
-import { take } from 'rxjs';
 import { SearchService } from '@core/services/search/search.service';
+import { HotelSummary } from '@core/models';
 
 @Component({
   selector: 'app-card-hotel',
@@ -14,12 +14,12 @@ import { SearchService } from '@core/services/search/search.service';
   styleUrls: ['./card-hotel.component.css'],
 })
 export class CardHotelComponent implements OnInit {
-  @Input() hotel!: Hotel;
+  @Input() hotel!: HotelSummary;
   reviewCount = 0;
   averageRating = '0.0';
   userId: string | undefined;
   price = 0;
-  isFavorite = false;
+  isFavorite!: boolean;
   cityName!: string;
 
   constructor(
