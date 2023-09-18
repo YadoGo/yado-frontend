@@ -1,4 +1,9 @@
 <div
   id="map"
-  class="sticky mt-10 top-24 left-4 w-[50%] h-[50%] md:w-[900px] md:h-[600px] overflow-hidden rounded-lg border-2 border-white shadow-md"
+  [ngClass]="{
+    'style-user-profile': styleConfig === 'userProfile',
+    'style-hotel-list': styleConfig === 'hotelList'
+  }"
 ></div>
+
+<div id="popup" class="ol-popup"></div>

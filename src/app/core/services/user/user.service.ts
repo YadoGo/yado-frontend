@@ -9,7 +9,7 @@ import { UserChangePassword } from '@core/models';
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = environment.apiBaseUrl;
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

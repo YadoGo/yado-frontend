@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { HotelService } from '@core/services/hotel/hotel.service';
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -10,6 +10,7 @@ import { fromLonLat } from 'ol/proj';
 import { Style, Icon, Text, Fill } from 'ol/style';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
+import Overlay from 'ol/Overlay';
 
 @Component({
   selector: 'app-map-hotels',
@@ -17,6 +18,10 @@ import VectorSource from 'ol/source/Vector';
   styleUrls: ['./map-hotels.component.css'],
 })
 export class MapHotelsComponent implements OnInit {
+  @Input() styleConfig: 'userProfile' | 'hotelList' = 'userProfile';
+
+  private popup!: Overlay;
+
   hotels: {
     lat: number;
     lon: number;
@@ -34,6 +39,8 @@ export class MapHotelsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log('styleConfig:', this.styleConfig);
+
     this.hotelService.getHotels().subscribe(
       (data) => {
         this.hotels = data;
@@ -65,6 +72,62 @@ export class MapHotelsComponent implements OnInit {
       }),
       controls: [],
     });
+
+    this.popup = new Overlay({
+      element: document.getElementById('popup')!,
+      autoPan: true,
+      offset: [-35, -100],
+    });
+    this.map.addOverlay(this.popup);
+    this.map.on('pointermove', this.showPopup.bind(this));
+  }
+
+  private showPopup(event: any): void {
+    let foundHotel;
+    this.map.forEachFeatureAtPixel(event.pixel, (feature) => {
+      const geometry = feature.getGeometry();
+      if (geometry instanceof Point) {
+        const coordinates = geometry.getCoordinates();
+        const hotel = this.hotels.find((hotel) => {
+          const hotelCoordinates = fromLonLat([hotel.lon, hotel.lat]);
+          return (
+            hotelCoordinates[0] === coordinates[0] &&
+            hotelCoordinates[1] === coordinates[1]
+          );
+        });
+
+        if (hotel) {
+          foundHotel = hotel;
+          const popupElement = this.popup.getElement() as HTMLElement;
+
+          while (popupElement.firstChild) {
+            popupElement.firstChild.remove();
+          }
+
+          const popupContent = document.createElement('div');
+          popupContent.className = 'popup p-2 rounded bg-gray-800 text-white';
+
+          const hotelName = document.createElement('p');
+          hotelName.className = 'text-sm';
+          hotelName.textContent = hotel.name;
+
+          const hotelStars = document.createElement('p');
+          hotelStars.className = 'text-xs';
+          hotelStars.textContent = `Stars: ${hotel.stars}`;
+
+          popupContent.appendChild(hotelName);
+          popupContent.appendChild(hotelStars);
+
+          popupElement.appendChild(popupContent);
+
+          this.popup.setPosition(coordinates);
+        }
+      }
+    });
+
+    if (!foundHotel) {
+      this.popup.setPosition(undefined);
+    }
   }
 
   private addMarkers(): void {
@@ -92,7 +155,6 @@ export class MapHotelsComponent implements OnInit {
         scale: 0.1,
         anchor: [0.2, 1],
       }),
-
       text: new Text({
         text: price,
         offsetY: -23,

@@ -1,27 +1,25 @@
 <app-main-layout>
+  <div class="text-center mt-10">
+    <h1 class="text-3xl font-bold">
+      Compare hotels and choose the best option!
+    </h1>
+  </div>
   <!-- Buscador centrado horizontalmente -->
   <div
     class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 flex items-center justify-between"
-  >
-    <input
-      class="border p-2 rounded"
-      type="text"
-      placeholder="Buscar hoteles..."
-    />
-  </div>
+  ></div>
+
   <div class="flex items-center justify-center pt-12">
     <div class="flex gap-8 flex-wrap items-center">
-      <!-- Lista de hoteles -->
       <div class="flex gap-8">
         <div
           *ngFor="let hotel of hotels; let i = index"
           class="card bg-white p-6 border-2 rounded shadow-md relative max-h-[65vh]"
         >
-          <!-- Botón para eliminar hotel -->
           <div class="flex justify-between items-center">
             <h2 class="text-3xl font-semibold mb-4">{{ hotel.name }}</h2>
             <button
-              class="p-2 mb-4 rounded hover:bg-red-600"
+              class="p-2 mb-4 rounded hover:bg-gray-300"
               (click)="deleteHotel(i)"
             >
               <svg
@@ -47,6 +45,11 @@
             class="w-full h-48 object-cover mb-4 rounded-md"
           />
 
+          <li class="flex justify-between items-center">
+            <span class="font-bold">Price</span>
+            <span class="font-bold">{{ hotel.price }}</span>
+          </li>
+
           <div
             class="relative pb-8 pr-2 overflow-y-auto h-full custom-scrollbar"
             [ngClass]="{
@@ -60,68 +63,79 @@
                 class="flex justify-between items-center"
               >
                 <span>{{ attribute.text }}</span>
-                <span
-                  *ngIf="attribute.isBetter; else notBetterIcon"
-                  class="text-green-500"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    class="w-6 h-6"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <ng-template #notBetterIcon>
-                  <span class="text-red-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="w-6 h-6"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                </ng-template>
               </li>
             </ul>
           </div>
 
           <button
             (click)="toggleExpand(i)"
-            class="ver-mas-btn mt-4 sticky bottom-0 transform z-50 px-4"
+            class="mt-4 sticky bottom-0 transform z-50 px-4 group hover:shadow-lg rounded-md"
           >
-            {{ hotels[i].isExpanded ? 'Ver menos' : 'Ver más' }}
+            {{ hotels[i].isExpanded ? 'See less' : 'See more' }}
           </button>
         </div>
-        <div
-          class="absolute bottom-4 left-0 right-0 h-16 pointer-events-none bg-gradient-to-t from-white to-transparent"
-        ></div>
       </div>
 
-      <!-- Carta adicional para añadir un nuevo hotel -->
+      <!-- Boton para añadir un nuevo hotel -->
       <div
-        class="bg-white rounded relative flex items-center justify-center w-40 h-40 hover:bg-gray-300 rounded-full"
+        *ngIf="hotels.length < 4"
+        class="bg-white border-2 rounded shadow-md relative flex items-center justify-center w-40 h-40"
       >
         <button
-          class="text-6xl text-black opacity-50 tooltip tooltip-dark transition pointer"
-          *ngIf="hotels.length < 4"
+          class="tooltip text-6xl text-black opacity-50 rounded-full hover:opacity-100 mb-2"
           data-tip="Add hotel!"
-          (click)="addHotel()"
+          (click)="openModal()"
         >
           +
         </button>
       </div>
+    </div>
+  </div>
+  <div
+    *ngIf="isModalOpen"
+    class="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50"
+  >
+    <div class="bg-gray-500 bg-opacity-50 w-full h-full absolute"></div>
+
+    <div class="bg-white rounded w-1/2 max-w-xl p-6 relative z-10">
+      <button
+        class="absolute p-2 top-4 right-4 hover:bg-gray-300 rounded"
+        (click)="closeModal()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
+      <h3 class="text-lg font-medium text-gray-900 mb-4" id="modal-title">
+        Add Hotel
+      </h3>
+
+      <input
+        type="text"
+        placeholder="Search..."
+        class="w-full p-2 border border-gray-300 rounded mb-2"
+      />
+
+      <ul class="mt-2 mb-6">
+        <li class="border-b border-gray-200 py-2">
+          Hotel 1 <button class="text-blue-500 ml-2">Select</button>
+        </li>
+        <li class="border-b border-gray-200 py-2">
+          Hotel 2 <button class="text-blue-500 ml-2">Select</button>
+        </li>
+      </ul>
     </div>
   </div>
 </app-main-layout>
