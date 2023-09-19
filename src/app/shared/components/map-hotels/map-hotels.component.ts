@@ -18,8 +18,7 @@ import Overlay from 'ol/Overlay';
   styleUrls: ['./map-hotels.component.css'],
 })
 export class MapHotelsComponent implements OnInit {
-  @Input() styleConfig: 'userProfile' | 'hotelList' = 'hotelList';
-
+  @Input() size: 'small' | 'large' = 'small';
   private popup!: Overlay;
 
   hotels: {
