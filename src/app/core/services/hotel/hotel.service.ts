@@ -29,4 +29,9 @@ export class HotelService {
     const url = `${this.apiUrl}/api/hotels/${hotelId}`;
     return this.http.get<Hotel>(url);
   }
+
+  getPopulationByName(name: string): Observable<any> {
+    const url = `${this.apiUrl}/api/populations/population-name/${name}`;
+    return this.http.get(url);
+  }
 }

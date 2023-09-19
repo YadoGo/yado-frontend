@@ -18,7 +18,7 @@ import Overlay from 'ol/Overlay';
   styleUrls: ['./map-hotels.component.css'],
 })
 export class MapHotelsComponent implements OnInit {
-  @Input() styleConfig: 'userProfile' | 'hotelList' = 'userProfile';
+  @Input() styleConfig: 'userProfile' | 'hotelList' = 'hotelList';
 
   private popup!: Overlay;
 
@@ -39,8 +39,6 @@ export class MapHotelsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('styleConfig:', this.styleConfig);
-
     this.hotelService.getHotels().subscribe(
       (data) => {
         this.hotels = data;
