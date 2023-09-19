@@ -6,9 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./compare-page.component.css'],
 })
 export class ComparePageComponent {
+  isModalOpen = false;
+
+  openModal(): void {
+    this.isModalOpen = true;
+  }
+
+  closeModal(): void {
+    this.isModalOpen = false;
+  }
+
   hotels: Hotel[] = [
     {
-      name: 'Hotel 1',
+      name: 'Hotel sample',
+      price: '$100',
       attributes: this.generateAttributes(),
       imageUrl: 'https://via.placeholder.com/150',
       isExpanded: false,
@@ -19,6 +30,7 @@ export class ComparePageComponent {
     if (this.hotels.length < 4) {
       this.hotels.push({
         name: `Hotel ${this.hotels.length + 1}`,
+        price: '$100',
         attributes: this.generateAttributes(),
         imageUrl: 'https://via.placeholder.com/150',
         isExpanded: false,
@@ -36,37 +48,27 @@ export class ComparePageComponent {
 
   generateAttributes(): HotelAttribute[] {
     return [
-      { text: 'Piscina al aire libre', isBetter: this.randomBetter() },
-      { text: 'WiFi gratuito', isBetter: this.randomBetter() },
-      { text: 'Estacionamiento gratuito', isBetter: this.randomBetter() },
-      { text: 'Desayuno incluido', isBetter: this.randomBetter() },
-      { text: 'Gimnasio', isBetter: this.randomBetter() },
-      { text: 'Spa', isBetter: this.randomBetter() },
-      { text: 'Servicio de habitación 24/7', isBetter: this.randomBetter() },
-      { text: 'Bar en la azotea', isBetter: this.randomBetter() },
-      {
-        text: 'TV de pantalla plana en cada habitación',
-        isBetter: this.randomBetter(),
-      },
-      {
-        text: 'Transporte al aeropuerto gratuito',
-        isBetter: this.randomBetter(),
-      },
+      { text: 'Outdoor swimming pool' },
+      { text: 'Free WiFi' },
+      { text: 'Free parking' },
+      { text: 'Breakfast and dinner included with stay' },
+      { text: 'Gym' },
+      { text: 'Spa' },
+      { text: '24/7 room service' },
+      { text: 'Rooftop bar' },
+      { text: 'Flat-screen TV in each room' },
+      { text: 'Free airport shuttle' },
     ];
-  }
-
-  randomBetter(): boolean {
-    return Math.random() > 0.5;
   }
 }
 
 interface HotelAttribute {
   text: string;
-  isBetter: boolean;
 }
 
 export interface Hotel {
   name: string;
+  price: string;
   attributes: HotelAttribute[];
   imageUrl: string;
   isExpanded: boolean;
