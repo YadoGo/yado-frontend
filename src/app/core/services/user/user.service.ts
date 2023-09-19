@@ -81,4 +81,14 @@ export class UserService {
       }),
     );
   }
+
+  getUserDetailsByUsername(username: string): Observable<UserDetails> {
+    const url = `${this.apiUrl}/api/users/${username}`;
+    return this.http.get<UserDetails>(url).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error:', error);
+        return throwError(error);
+      }),
+    );
+  }
 }

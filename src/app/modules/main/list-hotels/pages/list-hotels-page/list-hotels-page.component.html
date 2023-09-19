@@ -122,7 +122,11 @@
           class="flex-1 p-4"
           [hotels]="hotels"
         ></app-list>
-        <app-map-hotels [size]="'small'" *ngIf="isOpenMap" />
+        <app-map-hotels
+          [size]="'small'"
+          [hotels]="hotelsArrayMapped"
+          *ngIf="isOpenMap"
+        ></app-map-hotels>
       </div>
     </ng-container>
     <ng-template #notFoundTemplate>
