@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Hotel } from '@core/models';
+import { HotelSummary } from '@core/models';
 import { HotelService } from '@core/services/hotel/hotel.service';
 import { SearchService } from '@core/services/search/search.service';
 
@@ -11,12 +11,13 @@ import { SearchService } from '@core/services/search/search.service';
 })
 export class ListHotelsPageComponent implements OnInit {
   countryName!: string;
-  hotels?: Hotel[];
+  hotels?: HotelSummary[];
   countryId?: number;
 
   isFiltersExpanded = false;
   isSortExpanded = false;
   isOpenMap = false;
+  isValidCountry = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,14 +36,17 @@ export class ListHotelsPageComponent implements OnInit {
         if (results.length > 0) {
           const country = results[0];
           this.countryId = country.id;
-        }
 
-        if (this.countryId) {
-          this.hotelService
-            .getHotelsByCountry(this.countryId, 1, 15)
-            .subscribe((data) => {
-              this.hotels = data;
-            });
+          if (this.countryId) {
+            this.hotelService
+              .getHotelsByPopulationId(this.countryId, 1, 15)
+              .subscribe((data) => {
+                this.hotels = data;
+                console.log(this.hotels);
+              });
+          }
+        } else {
+          this.isValidCountry = false;
         }
       });
     });

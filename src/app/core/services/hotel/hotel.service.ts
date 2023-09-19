@@ -12,12 +12,12 @@ export class HotelService {
 
   constructor(private http: HttpClient) {}
 
-  getHotelsByCountry(
-    countryId: number,
+  getHotelsByPopulationId(
+    populationId: number,
     page: number,
     pageSize: number,
   ): Observable<any> {
-    const url = `${this.apiUrl}/api/hotels/population/${countryId}?page=${page}&pageSize=${pageSize}`;
+    const url = `${this.apiUrl}/api/hotels/population/${populationId}?page=${page}&pageSize=${pageSize}`;
     return this.http.get(url);
   }
 

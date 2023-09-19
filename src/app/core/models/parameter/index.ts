@@ -1,1 +1,2 @@
-export * from './parameter.model';
+export * from './parameter-dto';
+export * from './parameter';

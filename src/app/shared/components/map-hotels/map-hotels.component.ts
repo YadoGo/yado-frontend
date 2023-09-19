@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { HotelService } from '@core/services/hotel/hotel.service';
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -18,6 +18,8 @@ import VectorSource from 'ol/source/Vector';
   styleUrls: ['./map-hotels.component.css'],
 })
 export class MapHotelsComponent implements OnInit {
+  @Input() size: 'small' | 'large' = 'small';
+
   hotels: {
     lat: number;
     lon: number;
