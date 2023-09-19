@@ -4,7 +4,10 @@
   </h2>
   <div class="-m-1 flex flex-wrap md:-m-2">
     <div class="flex w-1/2 flex-wrap">
-      <div class="w-1/2 p-1 md:p-2">
+      <a
+        [routerLink]="'/hotels/Alhambra,%20Spain'"
+        class="w-1/2 p-1 md:p-2 relative group cursor-pointer"
+      >
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
@@ -12,8 +15,16 @@
           height="200"
           width="300"
         />
-      </div>
-      <div class="w-1/2 p-1 md:p-2">
+        <div
+          class="absolute inset-0 bg-black opacity-0 hover:opacity-70 transition-opacity duration-300 flex justify-center items-center text-white text-lg font-bold m-2 rounded-lg"
+        >
+          Alhambra
+        </div>
+      </a>
+      <a
+        [routerLink]="'/hotels/Ibiza,%20Spain'"
+        class="w-1/2 p-1 md:p-2 relative group cursor-pointer"
+      >
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
@@ -21,8 +32,16 @@
           height="200"
           width="300"
         />
-      </div>
-      <div class="w-full p-1 md:p-2">
+        <div
+          class="absolute inset-0 bg-black opacity-0 hover:opacity-70 transition-opacity duration-300 flex justify-center items-center text-white text-lg font-bold m-2 rounded-lg"
+        >
+          Ibiza
+        </div>
+      </a>
+      <a
+        [routerLink]="'/hotels/Barcelona,%20Spain'"
+        class="w-full p-1 md:p-2 relative group cursor-pointer"
+      >
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
@@ -30,10 +49,18 @@
           height="500"
           width="600"
         />
-      </div>
+        <div
+          class="absolute inset-0 bg-black opacity-0 hover:opacity-70 transition-opacity duration-300 flex justify-center items-center text-white text-lg font-bold m-2 rounded-lg"
+        >
+          Barcelona
+        </div>
+      </a>
     </div>
     <div class="flex w-1/2 flex-wrap">
-      <div class="w-full p-1 md:p-2">
+      <a
+        [routerLink]="'/hotels/Palma%20De%20Mallorca,%20Spain'"
+        class="w-full p-1 md:p-2 relative group cursor-pointer"
+      >
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
@@ -41,8 +68,16 @@
           height="500"
           width="600"
         />
-      </div>
-      <div class="w-1/2 p-1 md:p-2">
+        <div
+          class="absolute inset-0 bg-black opacity-0 hover:opacity-70 transition-opacity duration-300 flex justify-center items-center text-white text-lg font-bold m-2 rounded-lg"
+        >
+          Palma de Mallorca
+        </div>
+      </a>
+      <a
+        [routerLink]="'/hotels/Madrid,%20Spain'"
+        class="w-1/2 p-1 md:p-2 relative group cursor-pointer"
+      >
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
@@ -50,16 +85,29 @@
           height="200"
           width="300"
         />
-      </div>
-      <div class="w-1/2 p-1 md:p-2">
+        <div
+          class="absolute inset-0 bg-black opacity-0 hover:opacity-70 transition-opacity duration-300 flex justify-center items-center text-white text-lg font-bold m-2 rounded-lg"
+        >
+          Madrid
+        </div>
+      </a>
+      <a
+        [routerLink]="'/hotels/Tarragona,%20Spain'"
+        class="w-1/2 p-1 md:p-2 relative group cursor-pointer"
+      >
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
-          src="/assets/images/popular-destination/gran-canaria.jpg"
+          src="/assets/images/popular-destination/tarragona.jpg"
           height="200"
           width="300"
         />
-      </div>
+        <div
+          class="absolute inset-0 bg-black opacity-0 hover:opacity-70 transition-opacity duration-300 flex justify-center items-center text-white text-lg font-bold m-2 rounded-lg"
+        >
+          Tarragona
+        </div>
+      </a>
     </div>
   </div>
 </div>
