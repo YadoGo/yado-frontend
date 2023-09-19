@@ -20,8 +20,9 @@ import Overlay from 'ol/Overlay';
 export class MapHotelsComponent implements OnInit {
   @Input() size: 'small' | 'large' = 'small';
   private popup!: Overlay;
+  customStyle = 'my-custom-style';
 
-  hotels: {
+  @Input() hotels: {
     lat: number;
     lon: number;
     price: string;
@@ -38,16 +39,8 @@ export class MapHotelsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.hotelService.getHotels().subscribe(
-      (data) => {
-        this.hotels = data;
-        this.initMap();
-        this.addMarkers();
-      },
-      (error) => {
-        console.error('Error fetching hotel data', error);
-      },
-    );
+    this.initMap();
+    this.addMarkers();
   }
 
   private initMap(): void {

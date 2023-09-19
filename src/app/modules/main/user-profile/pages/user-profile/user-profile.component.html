@@ -12,7 +12,7 @@
           {{ firstName$ | async }} {{ lastName$ | async }}
         </h1>
         <h2 class="text-1xl text-center lg:text-left">
-          {{ username$ | async }}#{{ userId$ | async }}
+          {{ username$ | async }}
         </h2>
       </div>
     </div>
@@ -35,8 +35,8 @@
       <div class="space-y-4">
         <div>
           <h2 class="text-xl font-semibold mb-4">Map</h2>
-          <div class="bg-gray-100 p-4 rounded-md relative h-[30vh] w-full">
-            <app-map-hotels styleConfig="userProfile" />
+          <div class="bg-gray-100 p-2 rounded-md relative h-[30vh] w-full">
+            <app-map-hotels [size]="'large'" />
           </div>
         </div>
 

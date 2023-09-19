@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HotelSummary, ParameterDto } from '@core/models';
+import { HotelSummary } from '@core/models';
 import { HotelService } from '@core/services/hotel/hotel.service';
 import { SearchService } from '@core/services/search/search.service';
 
@@ -19,6 +19,8 @@ export class ListHotelsPageComponent implements OnInit {
   isSortExpanded = false;
   isOpenMap = false;
   isValidCountry = true;
+
+  hotelsArrayMapped: any[] = [];
 
   constructor(
     private route: ActivatedRoute,

@@ -25,6 +25,7 @@ export class UserProfileComponent implements OnInit {
   userId$!: Observable<string>;
   reviews$!: Observable<any>;
   favorites$!: Observable<any>;
+  customStyle = 'my-custom-style';
 
   constructor(
     private store: Store,
