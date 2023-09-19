@@ -129,7 +129,7 @@
       </div>
       <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
 
-      <app-reviews-list [reviews]="hotel.reviews" />
+      <app-reviews-list [hotelId]="hotel.id" />
     </ng-container>
     <ng-template #notFoundTemplate>
       <app-not-found></app-not-found>

@@ -16,7 +16,7 @@ import { HotelSummary } from '@core/models';
 export class CardHotelComponent implements OnInit {
   @Input() hotel!: HotelSummary;
   reviewCount = 0;
-  averageRating = '0.0';
+  averageRating = 0;
   userId: string | undefined;
   price = 0;
   isFavorite!: boolean;

@@ -49,6 +49,7 @@ import { AdminDashboardPageComponent } from './main/admin-dashboard';
 import { UserProfileComponent } from './main/user-profile';
 import { ReviewsListComponent } from './main/details-hotels/components/reviews-list/reviews-list.component';
 import { CreateReviewComponent } from './main/details-hotels/components/create-review/create-review.component';
+import { UpdateReviewComponent } from './main/details-hotels/components/update-review/update-review.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { CreateReviewComponent } from './main/details-hotels/components/create-r
     SharedHotelComponent,
     ReviewsListComponent,
     CreateReviewComponent,
+    UpdateReviewComponent,
   ],
   imports: [
     CommonModule,

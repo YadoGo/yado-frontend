@@ -1,3 +1,5 @@
+import { UserDetails } from '@core/models/user';
+
 export interface Review {
   id: string;
   qualification: number;
@@ -6,4 +8,5 @@ export interface Review {
   date: Date;
   userId: string;
   hotelId: string;
+  user: UserDetails;
 }

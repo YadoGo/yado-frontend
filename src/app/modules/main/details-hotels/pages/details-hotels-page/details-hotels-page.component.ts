@@ -17,7 +17,7 @@ export class DetailsHotelsPageComponent implements OnInit {
   hotelId: string | null = null;
   hotel!: Hotel;
   reviewCount = 0;
-  averageRating = '0.0';
+  averageRating = 0;
   userId: string | undefined;
   price = 0;
   isFavorite = false;

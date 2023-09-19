@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { UserDetails } from '@core/models/user/user-details/user-details.model';
 import { environment } from 'src/environments/environment';
 import { UserChangePassword } from '@core/models';
@@ -64,6 +68,16 @@ export class UserService {
       catchError((error) => {
         console.error('Error POST:', error);
         throw error;
+      }),
+    );
+  }
+
+  getUserDetails(userId: string): Observable<UserDetails> {
+    const url = `${this.apiUrl}/api/users/${userId}`;
+    return this.http.get<UserDetails>(url).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error:', error);
+        return throwError(error);
       }),
     );
   }
