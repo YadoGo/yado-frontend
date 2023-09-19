@@ -50,6 +50,7 @@ import { UserProfileComponent } from './main/user-profile';
 import { ReviewsListComponent } from './main/details-hotels/components/reviews-list/reviews-list.component';
 import { CreateReviewComponent } from './main/details-hotels/components/create-review/create-review.component';
 import { UpdateReviewComponent } from './main/details-hotels/components/update-review/update-review.component';
+import { ParametersDetailsComponent } from './main/details-hotels/components/parameters-details/parameters-details.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { UpdateReviewComponent } from './main/details-hotels/components/update-r
     ReviewsListComponent,
     CreateReviewComponent,
     UpdateReviewComponent,
+    ParametersDetailsComponent,
   ],
   imports: [
     CommonModule,
