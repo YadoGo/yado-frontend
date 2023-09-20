@@ -19,7 +19,7 @@ export class ListHotelsPageComponent implements OnInit {
   isOpenMap = false;
   isValidCountry = true;
 
-  hotelsArrayMapped: any[] = []; // Definimos la nueva propiedad aquí
+  hotelsArrayMapped: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -45,7 +45,6 @@ export class ListHotelsPageComponent implements OnInit {
               .subscribe((data) => {
                 this.hotels = data;
 
-                // Aquí mapeamos los datos de los hoteles al formato correcto
                 this.hotelsArrayMapped = data.map((hotel: HotelSummary) => ({
                   lat: hotel.latitude,
                   lon: hotel.longitude,
