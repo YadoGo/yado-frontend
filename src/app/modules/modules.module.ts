@@ -51,6 +51,7 @@ import { ReviewsListComponent } from './main/details-hotels/components/reviews-l
 import { CreateReviewComponent } from './main/details-hotels/components/create-review/create-review.component';
 import { UpdateReviewComponent } from './main/details-hotels/components/update-review/update-review.component';
 import { ParametersDetailsComponent } from './main/details-hotels/components/parameters-details/parameters-details.component';
+import { TrendingPageComponent } from './main/trending/pages/trending-page/trending-page.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { ParametersDetailsComponent } from './main/details-hotels/components/par
     CreateReviewComponent,
     UpdateReviewComponent,
     ParametersDetailsComponent,
+    TrendingPageComponent,
   ],
   imports: [
     CommonModule,

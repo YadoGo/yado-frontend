@@ -13,6 +13,7 @@ export class ListHotelsPageComponent implements OnInit {
   countryName!: string;
   hotels?: HotelSummary[];
   countryId?: number;
+  filters: any = {};
 
   isFiltersExpanded = false;
   isSortExpanded = false;
@@ -53,6 +54,7 @@ export class ListHotelsPageComponent implements OnInit {
 
                 console.log(this.hotels);
               });
+            this.fetchHotels();
           }
         } else {
           this.isValidCountry = false;
@@ -88,5 +90,20 @@ export class ListHotelsPageComponent implements OnInit {
 
   receiveChangeMap(value: boolean) {
     this.isOpenMap = value;
+  }
+
+  onFiltersChanged(filters: any) {
+    this.filters = filters;
+    this.fetchHotels();
+  }
+
+  private fetchHotels() {
+    if (this.countryId) {
+      this.hotelService
+        .getFilteredHotels(this.filters, this.countryId, 1, 15)
+        .subscribe((data) => {
+          this.hotels = data;
+        });
+    }
   }
 }

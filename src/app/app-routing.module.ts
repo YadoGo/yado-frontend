@@ -11,6 +11,7 @@ import { HotelManagerPageComponent } from '@modules/main/hotel-manager';
 import { ListHotelsPageComponent } from '@modules/main/list-hotels';
 import { ProfileSettingsPageComponent } from '@modules/main/profile-settings';
 import { UserProfileComponent } from '@modules/main/user-profile';
+import { TrendingPageComponent } from '@modules/main/trending';
 
 const routes: Routes = [
   {
@@ -34,6 +35,11 @@ const routes: Routes = [
   { path: 'register', redirectTo: 'auth/register', pathMatch: 'full' },
   { title: 'About · YADO', path: 'about', component: AboutPageComponent },
   { title: 'Compare · YADO', path: 'compare', component: ComparePageComponent },
+  {
+    title: 'Trending · YADO',
+    path: 'trending',
+    component: TrendingPageComponent,
+  },
   {
     title: 'Champions · YADO',
     path: 'champions',

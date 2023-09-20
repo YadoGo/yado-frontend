@@ -36,6 +36,8 @@ export class ReviewsListComponent implements OnInit {
         this.userId$ = userId;
       }
     });
+
+    console.log(this.hotelId);
   }
 
   ngOnInit() {
