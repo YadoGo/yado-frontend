@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Hotel } from '@core/models';
+import { HotelSummary } from '@core/models';
 import { HotelService } from '@core/services/hotel/hotel.service';
 import { SearchService } from '@core/services/search/search.service';
 
@@ -11,12 +11,16 @@ import { SearchService } from '@core/services/search/search.service';
 })
 export class ListHotelsPageComponent implements OnInit {
   countryName!: string;
-  hotels?: Hotel[];
+  hotels?: HotelSummary[];
   countryId?: number;
+  filters: any = {};
 
   isFiltersExpanded = false;
   isSortExpanded = false;
   isOpenMap = false;
+  isValidCountry = true;
+
+  hotelsArrayMapped: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -35,14 +39,25 @@ export class ListHotelsPageComponent implements OnInit {
         if (results.length > 0) {
           const country = results[0];
           this.countryId = country.id;
-        }
 
-        if (this.countryId) {
-          this.hotelService
-            .getHotelsByCountry(this.countryId, 1, 15)
-            .subscribe((data) => {
-              this.hotels = data;
-            });
+          if (this.countryId) {
+            this.hotelService
+              .getHotelsByPopulationId(this.countryId, 1, 15)
+              .subscribe((data) => {
+                this.hotels = data;
+
+                this.hotelsArrayMapped = data.map((hotel: HotelSummary) => ({
+                  lat: hotel.latitude,
+                  lon: hotel.longitude,
+                  name: hotel.name,
+                }));
+
+                console.log(this.hotels);
+              });
+            this.fetchHotels();
+          }
+        } else {
+          this.isValidCountry = false;
         }
       });
     });
@@ -75,5 +90,20 @@ export class ListHotelsPageComponent implements OnInit {
 
   receiveChangeMap(value: boolean) {
     this.isOpenMap = value;
+  }
+
+  onFiltersChanged(filters: any) {
+    this.filters = filters;
+    this.fetchHotels();
+  }
+
+  private fetchHotels() {
+    if (this.countryId) {
+      this.hotelService
+        .getFilteredHotels(this.filters, this.countryId, 1, 15)
+        .subscribe((data) => {
+          this.hotels = data;
+        });
+    }
   }
 }

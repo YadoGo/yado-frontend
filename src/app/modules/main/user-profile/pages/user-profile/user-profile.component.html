@@ -1,59 +1,86 @@
 <app-main-layout>
-  <div class="p-8 mx-32">
+  <div class="p-12 lg:mx-72">
     <!-- Sección de imagen y nombre del usuario en la parte superior -->
-    <div class="flex items-center mb-8">
+    <div class="flex flex-col lg:flex-row items-center mb-8">
       <img
-        class="w-48 h-48 rounded-full mr-4"
-        [src]="user.imageUrl"
-        alt="{{ user.name }}"
+        class="w-24 h-24 rounded-full mb-4 lg:mb-0 lg:mr-4 lg:ml-4"
+        [src]="userProfileImage$ | async"
+        alt="{{ firstName$ | async }} {{ lastName$ | async }}"
       />
-      <h1 class="text-3xl mx-8 font-bold">{{ user.name }}</h1>
+      <div class="flex flex-col items-center lg:items-start">
+        <h1 class="text-3xl font-bold text-center lg:text-left mb-2">
+          {{ firstName$ | async }} {{ lastName$ | async }}
+        </h1>
+        <h2 class="text-1xl text-center lg:text-left">
+          {{ username$ | async }}
+        </h2>
+      </div>
     </div>
 
-    <!-- Panel con la información del usuario, comentarios y hoteles favoritos-->
-    <div class="grid grid-cols-3 gap-8 bg-white p-6 rounded shadow-lg w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white p-6 rounded-md">
       <div>
-        <h2 class="text-xl font-semibold mb-4">Información del usuario</h2>
+        <h2 class="text-xl font-semibold mb-4">Liked hotels</h2>
 
-        <div class="bg-gray-100 p-4 rounded mb-4">Info 1</div>
-        <div class="bg-gray-100 p-4 rounded mb-4">Info 2</div>
-        <div class="bg-gray-100 p-4 rounded">Info 3</div>
+        <div
+          class="bg-gray-100 p-4 rounded-md mb-4 h-[51vh] overflow-y-auto custom-scrollbar"
+        >
+          <div *ngIf="favorites$ | async as favorites">
+            <div *ngFor="let favorite of favorites">
+              <p>Hotel: {{ favorite.hotel?.name }}</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div>
-        <h2 class="text-xl font-semibold mb-4">Comentarios/Reseñas</h2>
-
-        <div class="bg-gray-100 p-4 rounded mb-4">Comentario 1</div>
-        <div class="bg-gray-100 p-4 rounded mb-4">Comentario 2</div>
-        <div class="bg-gray-100 p-4 rounded">Comentario 3</div>
-      </div>
-
-      <div>
-        <h2 class="text-xl font-semibold mb-4">Hoteles Favoritos</h2>
-
-        <div class="bg-gray-100 p-4 rounded mb-4">
-          Hotel 1
-          <img
-            class="mb-2 w-full h-24 object-cover rounded"
-            src="https://via.placeholder.com/190x100"
-            alt="Hotel 1"
-          />
+      <div class="space-y-4">
+        <div>
+          <h2 class="text-xl font-semibold mb-4">Map</h2>
+          <div class="bg-gray-100 p-2 rounded-md relative h-[30vh] w-full">
+            <app-map-hotels [size]="'large'" />
+          </div>
         </div>
-        <div class="bg-gray-100 p-4 rounded mb-4">
-          Hotel 2
-          <img
-            class="mb-2 w-full h-24 object-cover rounded"
-            src="https://via.placeholder.com/190x100"
-            alt="Hotel 2"
-          />
-        </div>
-        <div class="bg-gray-100 p-4 rounded">
-          Hotel 3
-          <img
-            class="mb-2 w-full h-24 object-cover rounded"
-            src="https://via.placeholder.com/190x100"
-            alt="Hotel 3"
-          />
+
+        <div>
+          <h2 class="text-xl font-semibold mb-4">Reviews</h2>
+          <div
+            class="bg-gray-100 p-4 rounded-md h-[15vh] overflow-y-auto custom-scrollbar"
+          >
+            <div *ngIf="reviews$ | async as reviews">
+              <div
+                *ngFor="let review of reviews"
+                class="bg-white shadow-md rounded-lg p-6 mb-4"
+              >
+                <div class="flex justify-between items-center mb-2">
+                  <p class="text-gray-800 font-semibold">
+                    User: {{ review.userId }}
+                  </p>
+                  <p class="text-gray-500 text-sm">
+                    {{ review.date | date: 'short' }}
+                  </p>
+                </div>
+
+                <div class="mb-2">
+                  <p class="text-gray-700">Hotel: {{ review.hotelId }}</p>
+                </div>
+
+                <div class="mb-2">
+                  <p class="text-green-700 font-semibold">
+                    Qualification: {{ review.qualification }}
+                  </p>
+                </div>
+
+                <div class="mb-2">
+                  <p>Positive comment:</p>
+                  <p>{{ review.positiveComment }}</p>
+                </div>
+
+                <div class="mb-2">
+                  <p>Negative comment:</p>
+                  <p>{{ review.negativeComment }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

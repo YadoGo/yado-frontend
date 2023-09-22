@@ -10,6 +10,7 @@ import {
   ListComponent,
   MapHotelsComponent,
   NavBarComponent,
+  NotFoundComponent,
   PaginationHotelsComponent,
   SearchComponent,
   SideBarComponent,
@@ -30,6 +31,7 @@ import { PopupContentMapComponent } from './components/popup-content-map/popup-c
     SuccessMessageComponent,
     MapHotelsComponent,
     PopupContentMapComponent,
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +52,7 @@ import { PopupContentMapComponent } from './components/popup-content-map/popup-c
     SuccessMessageComponent,
     MapHotelsComponent,
     PopupContentMapComponent,
+    NotFoundComponent,
   ],
 })
 export class SharedModule {}

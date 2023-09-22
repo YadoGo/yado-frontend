@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { HotelService } from '@core/services/hotel/hotel.service';
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -10,6 +10,8 @@ import { fromLonLat } from 'ol/proj';
 import { Style, Icon, Text, Fill } from 'ol/style';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
+import Overlay from 'ol/Overlay';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-map-hotels',
@@ -17,13 +19,17 @@ import VectorSource from 'ol/source/Vector';
   styleUrls: ['./map-hotels.component.css'],
 })
 export class MapHotelsComponent implements OnInit {
-  hotels: {
+  @Input() size: 'small' | 'large' = 'small';
+  private popup!: Overlay;
+  customStyle = 'my-custom-style';
+
+  @Input() hotels: {
     lat: number;
     lon: number;
     price: string;
     stars: number;
     name: string;
-    id: number;
+    id: string;
   }[] = [];
 
   private map!: Map;
@@ -31,22 +37,17 @@ export class MapHotelsComponent implements OnInit {
   constructor(
     private elementRef: ElementRef,
     private hotelService: HotelService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
-    this.hotelService.getHotels().subscribe(
-      (data) => {
-        this.hotels = data;
-        this.initMap();
-        this.addMarkers();
-      },
-      (error) => {
-        console.error('Error fetching hotel data', error);
-      },
-    );
+    this.initMap();
+    this.addMarkers();
   }
 
   private initMap(): void {
+    const firstHotel = this.hotels[0];
+
     this.map = new Map({
       target: this.elementRef.nativeElement.querySelector('#map'),
       layers: [
@@ -58,21 +59,89 @@ export class MapHotelsComponent implements OnInit {
         }),
       ],
       view: new View({
-        center: fromLonLat([2.1734, 41.3851]),
-        zoom: 12,
+        center: firstHotel
+          ? fromLonLat([firstHotel.lon, firstHotel.lat])
+          : fromLonLat([2.1734, 41.3851]),
+        zoom: 14,
         maxZoom: 18,
         minZoom: 11,
       }),
       controls: [],
     });
+
+    this.popup = new Overlay({
+      element: document.getElementById('popup')!,
+      autoPan: true,
+      offset: [-35, -140],
+    });
+    this.map.addOverlay(this.popup);
+    this.map.on('pointermove', this.showPopup.bind(this));
+  }
+
+  private showPopup(event: any): void {
+    let foundHotel;
+    this.map.forEachFeatureAtPixel(event.pixel, (feature) => {
+      const geometry = feature.getGeometry();
+      if (geometry instanceof Point) {
+        const coordinates = geometry.getCoordinates();
+        const hotel = this.hotels.find((hotel) => {
+          const hotelCoordinates = fromLonLat([hotel.lon, hotel.lat]);
+          return (
+            hotelCoordinates[0] === coordinates[0] &&
+            hotelCoordinates[1] === coordinates[1]
+          );
+        });
+
+        if (hotel) {
+          foundHotel = hotel;
+          const popupElement = this.popup.getElement() as HTMLElement;
+
+          while (popupElement.firstChild) {
+            popupElement.firstChild.remove();
+          }
+
+          const popupContent = document.createElement('div');
+          popupContent.className = 'popup p-2 rounded bg-gray-800 text-white';
+
+          const hotelName = document.createElement('p');
+          hotelName.className = 'text-sm';
+          hotelName.textContent = hotel.name;
+
+          const hotelStars = document.createElement('p');
+          hotelStars.className = 'text-xs';
+          hotelStars.textContent = `Stars: ${hotel.stars}`;
+
+          popupContent.appendChild(hotelName);
+          popupContent.appendChild(hotelStars);
+
+          popupElement.appendChild(popupContent);
+
+          this.popup.setPosition(coordinates);
+        }
+      }
+    });
+
+    if (!foundHotel) {
+      this.popup.setPosition(undefined);
+    }
   }
 
   private addMarkers(): void {
     const features = this.hotels.map((hotel) => {
+      const randomPrice = this.getRandomPrice();
+      const randomStars = this.getRandomStars();
+
+      hotel.price = randomPrice;
+      hotel.stars = randomStars;
+
       const marker = new Feature({
         geometry: new Point(fromLonLat([hotel.lon, hotel.lat])),
       });
-      marker.setStyle(this.createHotelStyle(hotel.price));
+      marker.setStyle(this.createHotelStyle(randomPrice));
+      console.log('Setting details for marker: ', hotel);
+
+      marker.set('details', hotel);
+      marker.set('id', hotel.id);
       return marker;
     });
 
@@ -83,6 +152,31 @@ export class MapHotelsComponent implements OnInit {
     });
 
     this.map.addLayer(vectorLayer);
+
+    this.map.on('click', this.handleMapClick.bind(this));
+  }
+
+  private handleMapClick(event: any): void {
+    this.map.forEachFeatureAtPixel(event.pixel, (feature) => {
+      const hotelDetails = feature.get('details');
+      if (hotelDetails !== undefined) {
+        console.log(`${hotelDetails.id}`);
+
+        this.router.navigate([
+          `/hotels/Reus/04705d78-aaae-4dd4-a7fd-32c4a049925e`,
+        ]);
+      }
+    });
+  }
+
+  private getRandomPrice(): string {
+    const randomPrice = Math.floor(Math.random() * 451) + 50;
+    return `$${randomPrice}`;
+  }
+
+  private getRandomStars(): number {
+    const randomStars = parseFloat((Math.random() * 4 + 1).toFixed(1));
+    return randomStars;
   }
 
   private createHotelStyle(price: string): Style {
@@ -92,7 +186,6 @@ export class MapHotelsComponent implements OnInit {
         scale: 0.1,
         anchor: [0.2, 1],
       }),
-
       text: new Text({
         text: price,
         offsetY: -23,
