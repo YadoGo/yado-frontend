@@ -1,16 +1,10 @@
 <div
   id="map"
-  [class]="
-    'sticky left-4 overflow-hidden rounded-lg border-2 border-white shadow-md ' +
-    (size === 'large'
-      ? 'w-full h-64'
-      : 'h-[50%] md:w-[900px] md:h-[600px] top-24 mt-10')
-  "
+  [ngClass]="{
+    'style-user-profile': styleConfig === 'userProfile',
+    'style-hotel-list': styleConfig === 'hotelList',
+    'w-full h-64': styleConfig === 'hotelDetail'
+  }"
 ></div>
-<div
-  id="popup"
-  class="mb-12 ml-5 bg-white rounded-lg shadow-lg w-[100%] h-[100%]"
-  *ngIf="showPopupContent"
->
-  <app-popup-content-map [hotelData]="hotelData" *ngIf="hotelData" />
-</div>
+
+<div id="popup" class="ol-popup"></div>
