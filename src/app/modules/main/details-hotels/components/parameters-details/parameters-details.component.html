@@ -1,50 +1,62 @@
-<h3 class="text-xl mb-6">Parameters</h3>
+<div *ngIf="parameters">
+  <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
 
-<div class="lg:columns-4 md:columns-3 columns-2">
-  <p *ngIf="parameters.bicycleRental">Bicycle Rental</p>
-  <p *ngIf="parameters.solarium">Solarium</p>
-  <p *ngIf="parameters.golfCourse">Golf Course</p>
-  <p *ngIf="parameters.massage">Massage</p>
-  <p *ngIf="parameters.fitnessCentre">Fitness Centre</p>
-  <p *ngIf="parameters.freeCancellation">Free Cancellation</p>
-  <p *ngIf="parameters.selfCatering">Self Catering</p>
-  <p *ngIf="parameters.breakfastIncluded">Breakfast Included</p>
-  <p *ngIf="parameters.breakfastDinnerIncluded">Breakfast Dinner Included</p>
-  <p *ngIf="parameters.twinBeds">Twin Beds</p>
-  <p *ngIf="parameters.doubleBed">Double Bed</p>
-  <p *ngIf="parameters.largeDoubleBed">Large Double Bed</p>
-  <p *ngIf="parameters.extraLargeDoubleBed">Extra Large Double Bed</p>
-  <p *ngIf="parameters.nonSmokingRooms">Non-Smoking Rooms</p>
-  <p *ngIf="parameters.parking">Parking</p>
-  <p *ngIf="parameters.veryGoodWifi">Very Good Wifi</p>
-  <p *ngIf="parameters.familyRooms">Family Rooms</p>
-  <p *ngIf="parameters.swimmingPool">Swimming Pool</p>
-  <p *ngIf="parameters.roomService">Room Service</p>
-  <p *ngIf="parameters.petsAllowed">Pets Allowed</p>
-  <p *ngIf="parameters.facilitesDisabledGuest">Facilites Disabled Guest</p>
-  <p *ngIf="parameters.spaWellnessCentre">Spa & Wellness Centre</p>
-  <p *ngIf="parameters.aeroportSchuttle">Airport Shuttle</p>
-  <p *ngIf="parameters.restaurant">Restaurant</p>
-  <p *ngIf="parameters.receptionAlwaysOpen">Reception Always Open</p>
-  <p *ngIf="parameters.kitchen">Kitchen</p>
-  <p *ngIf="parameters.privateBathroom">Private Bathroom</p>
-  <p *ngIf="parameters.airConditioning">Air Conditioning</p>
-  <p *ngIf="parameters.laptopFriendlyWorkspace">Laptop-Friendly Workspace</p>
-  <p *ngIf="parameters.bath">Bath</p>
-  <p *ngIf="parameters.privatePool">Private Pool</p>
-  <p *ngIf="parameters.terrace">Terrace</p>
-  <p *ngIf="parameters.balcony">Balcony</p>
-  <p *ngIf="parameters.blatScreenTv">Flat Screen TV</p>
-  <p *ngIf="parameters.washingMachine">Washing Machine</p>
-  <p *ngIf="parameters.patio">Patio</p>
-  <p *ngIf="parameters.soundproofing">Soundproofing</p>
-  <p *ngIf="parameters.viewHotel">View Hotel</p>
-  <p *ngIf="parameters.seaView">Sea View</p>
-  <p *ngIf="parameters.wheelchairAccessible">Wheelchair Accessible</p>
-  <p *ngIf="parameters.toiletGrabRails">Toilet Grab Rails</p>
-  <p *ngIf="parameters.higherLevelToilet">Higher-Level Toilet</p>
-  <p *ngIf="parameters.lowerBathroomSink">Lower Bathroom Sink</p>
-  <p *ngIf="parameters.emergencyCordBathroom">Emergency Cord in Bathroom</p>
-  <p *ngIf="parameters.visualAidsBraille">Visual Aids (Braille)</p>
-  <p *ngIf="parameters.visualAidsTactileSigns">Visual Aids (Tactile Signs)</p>
+  <div class="lg:columns-4 md:columns-3 columns-2">
+    <h3 class="text-xl mb-6">Parameters</h3>
+
+    <div class="lg:columns-4 md:columns-3 columns-2">
+      <p *ngIf="parameters.bicycleRental">Bicycle Rental</p>
+      <p *ngIf="parameters.solarium">Solarium</p>
+      <p *ngIf="parameters.golfCourse">Golf Course</p>
+      <p *ngIf="parameters.massage">Massage</p>
+      <p *ngIf="parameters.fitnessCentre">Fitness Centre</p>
+      <p *ngIf="parameters.freeCancellation">Free Cancellation</p>
+      <p *ngIf="parameters.selfCatering">Self Catering</p>
+      <p *ngIf="parameters.breakfastIncluded">Breakfast Included</p>
+      <p *ngIf="parameters.breakfastDinnerIncluded">
+        Breakfast Dinner Included
+      </p>
+      <p *ngIf="parameters.twinBeds">Twin Beds</p>
+      <p *ngIf="parameters.doubleBed">Double Bed</p>
+      <p *ngIf="parameters.largeDoubleBed">Large Double Bed</p>
+      <p *ngIf="parameters.extraLargeDoubleBed">Extra Large Double Bed</p>
+      <p *ngIf="parameters.nonSmokingRooms">Non-Smoking Rooms</p>
+      <p *ngIf="parameters.parking">Parking</p>
+      <p *ngIf="parameters.veryGoodWifi">Very Good Wifi</p>
+      <p *ngIf="parameters.familyRooms">Family Rooms</p>
+      <p *ngIf="parameters.swimmingPool">Swimming Pool</p>
+      <p *ngIf="parameters.roomService">Room Service</p>
+      <p *ngIf="parameters.petsAllowed">Pets Allowed</p>
+      <p *ngIf="parameters.facilitesDisabledGuest">Facilites Disabled Guest</p>
+      <p *ngIf="parameters.spaWellnessCentre">Spa & Wellness Centre</p>
+      <p *ngIf="parameters.aeroportSchuttle">Airport Shuttle</p>
+      <p *ngIf="parameters.restaurant">Restaurant</p>
+      <p *ngIf="parameters.receptionAlwaysOpen">Reception Always Open</p>
+      <p *ngIf="parameters.kitchen">Kitchen</p>
+      <p *ngIf="parameters.privateBathroom">Private Bathroom</p>
+      <p *ngIf="parameters.airConditioning">Air Conditioning</p>
+      <p *ngIf="parameters.laptopFriendlyWorkspace">
+        Laptop-Friendly Workspace
+      </p>
+      <p *ngIf="parameters.bath">Bath</p>
+      <p *ngIf="parameters.privatePool">Private Pool</p>
+      <p *ngIf="parameters.terrace">Terrace</p>
+      <p *ngIf="parameters.balcony">Balcony</p>
+      <p *ngIf="parameters.blatScreenTv">Flat Screen TV</p>
+      <p *ngIf="parameters.washingMachine">Washing Machine</p>
+      <p *ngIf="parameters.patio">Patio</p>
+      <p *ngIf="parameters.soundproofing">Soundproofing</p>
+      <p *ngIf="parameters.viewHotel">View Hotel</p>
+      <p *ngIf="parameters.seaView">Sea View</p>
+      <p *ngIf="parameters.wheelchairAccessible">Wheelchair Accessible</p>
+      <p *ngIf="parameters.toiletGrabRails">Toilet Grab Rails</p>
+      <p *ngIf="parameters.higherLevelToilet">Higher-Level Toilet</p>
+      <p *ngIf="parameters.lowerBathroomSink">Lower Bathroom Sink</p>
+      <p *ngIf="parameters.emergencyCordBathroom">Emergency Cord in Bathroom</p>
+      <p *ngIf="parameters.visualAidsBraille">Visual Aids (Braille)</p>
+      <p *ngIf="parameters.visualAidsTactileSigns">
+        Visual Aids (Tactile Signs)
+      </p>
+    </div>
+  </div>
 </div>

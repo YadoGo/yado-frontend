@@ -116,13 +116,19 @@
           class="w-1/4 p-4 app-filters"
           *ngIf="isFiltersExpanded"
           (isOpenMapChange)="receiveChangeMap($event)"
+          (filtersChanged)="onFiltersChanged($event)"
         />
         <app-list
           *ngIf="!isOpenMap"
           class="flex-1 p-4"
           [hotels]="hotels"
         ></app-list>
-        <app-map-hotels styleConfig="hotelList" *ngIf="isOpenMap" />
+
+        <app-map-hotels
+          styleConfig="hotelList"
+          [hotels]="hotelsArrayMapped"
+          *ngIf="isOpenMap"
+        />
       </div>
     </ng-container>
     <ng-template #notFoundTemplate>

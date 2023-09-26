@@ -22,3 +22,18 @@ export const selectUserLoggedIn = createSelector(
   selectUserId,
   (userId: string) => !!userId,
 );
+
+export const selectUserFirstName = createSelector(
+  selectUserState,
+  (state: UserState) => state.firstName,
+);
+
+export const selectUserLastName = createSelector(
+  selectUserState,
+  (state: UserState) => state.lastName,
+);
+
+export const selectUserProfileImage = createSelector(
+  selectUserState,
+  (state: UserState) => state.imageProfile,
+);

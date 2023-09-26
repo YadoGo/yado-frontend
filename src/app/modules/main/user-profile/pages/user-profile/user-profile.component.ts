@@ -1,25 +1,52 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectUsername } from 'src/app/core/states/user.selectors';
+import { ReviewService } from 'src/app/core/services/review/review.service';
+import { FavoriteService } from 'src/app/core/services/favorite/favorite.service';
+
+import {
+  selectUsername,
+  selectUserFirstName,
+  selectUserLastName,
+  selectUserProfileImage,
+  selectUserId,
+} from 'src/app/core/states/user.selectors';
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css'],
 })
 export class UserProfileComponent implements OnInit {
-  user = {
-    name: 'Jonny Pepperoni',
-    tag: 'Jonny#2521',
-    imageUrl:
-      'https://cdn.tasteatlas.com/images/dishes/b05a0af72ad845f3a6abe16143d7853a.jpg?m=facebook',
-  };
-
   username$!: Observable<string>;
+  firstName$!: Observable<string>;
+  lastName$!: Observable<string>;
+  userProfileImage$!: Observable<string>;
+  userId$!: Observable<string>;
+  reviews$!: Observable<any>;
+  favorites$!: Observable<any>;
+  customStyle = 'my-custom-style';
 
-  constructor(private store: Store) {}
-
+  constructor(
+    private store: Store,
+    private reviewService: ReviewService,
+    private favoriteService: FavoriteService,
+  ) {}
   ngOnInit(): void {
+    this.userId$ = this.store.select(selectUserId);
+
+    this.userId$.subscribe((userId) => {
+      if (userId) {
+        this.reviews$ = this.reviewService.getReviewsByUserId(userId);
+        this.favorites$ =
+          this.favoriteService.getFavoriteHotelsByUserId(userId);
+      }
+    });
+
     this.username$ = this.store.select(selectUsername);
+    this.firstName$ = this.store.select(selectUserFirstName);
+    this.lastName$ = this.store.select(selectUserLastName);
+    this.userProfileImage$ = this.store.select(selectUserProfileImage);
+    this.userId$ = this.store.select(selectUserId);
   }
 }

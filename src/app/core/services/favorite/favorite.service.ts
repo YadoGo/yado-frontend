@@ -69,4 +69,14 @@ export class FavoriteService {
       )
       .pipe(catchError(this.handleError));
   }
+
+  getFavoriteHotelsByUserId(userId: string): Observable<Favorite[]> {
+    const url = `${this.apiUrl}/api/favorites/user/${userId}`;
+    return this.http.get<Favorite[]>(url).pipe(
+      catchError((error: any) => {
+        console.error('Error:', error);
+        return throwError(error);
+      }),
+    );
+  }
 }

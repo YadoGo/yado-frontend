@@ -13,14 +13,6 @@
   text-align: center;
 }
 
-.style-user-profile {
-  border-radius: 10px;
-  position: sticky;
-  width: 100%;
-  height: 50vh;
-  border: 2px solid rgb(236, 234, 234);
-}
-
 .style-hotel-list {
   position: sticky;
   margin-top: 2.5rem;

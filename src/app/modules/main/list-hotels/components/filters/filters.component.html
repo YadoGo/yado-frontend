@@ -29,7 +29,7 @@
       </div>
 
       <!-- Filters -->
-      <form class="mt-4 border-t border-gray-200 px-6">
+      <div class="mt-4 border-t border-gray-200 px-6">
         <div class="border-b border-gray-200 py-6">
           <div
             class="container-map p-12 flex justify-center items-center border border-gray-300 rounded bg-center"
@@ -40,66 +40,6 @@
             >
               {{ mapButtonText }}
             </button>
-          </div>
-        </div>
-
-        <!-- Filter Center Distance -->
-        <div class="border-b border-gray-200 py-6">
-          <h3 class="-my-3 flow-root">
-            <div
-              type="button"
-              class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
-              aria-controls="filter-section-1"
-              aria-expanded="false"
-            >
-              <span class="font-medium text-gray-900">Center distance</span>
-            </div>
-          </h3>
-          <div class="pt-6" id="filter-section-1">
-            <div class="space-y-4">
-              <div class="flex items-center">
-                <input
-                  id="filter-mobile-less-than-1"
-                  name="category[]"
-                  value="new-arrivals"
-                  type="checkbox"
-                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
-                />
-                <label
-                  for="filter-mobile-less-than-1"
-                  class="ml-3 text-sm text-gray-600 cursor-pointer"
-                  >Less than 1 km</label
-                >
-              </div>
-              <div class="flex items-center">
-                <input
-                  id="filter-mobile-less-than-3"
-                  name="category[]"
-                  value="new-arrivals"
-                  type="checkbox"
-                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
-                />
-                <label
-                  for="filter-mobile-less-than-3"
-                  class="ml-3 text-sm text-gray-600 cursor-pointer"
-                  >Less than 3 km</label
-                >
-              </div>
-              <div class="flex items-center">
-                <input
-                  id="filter-mobile-less-than-5"
-                  name="category[]"
-                  value="new-arrivals"
-                  type="checkbox"
-                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
-                />
-                <label
-                  for="filter-mobile-less-than-5"
-                  class="ml-3 text-sm text-gray-600 cursor-pointer"
-                  >Less than 5 km</label
-                >
-              </div>
-            </div>
           </div>
         </div>
 
@@ -120,8 +60,6 @@
               <div class="flex items-center">
                 <input
                   id="filter-mobile-bicycle-rental"
-                  name="category[]"
-                  value="new-arrivals"
                   type="checkbox"
                   class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
                 />
@@ -962,14 +900,14 @@
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
 
 <section aria-labelledby="products-heading" class="pb-24">
   <div class="grid grid-cols-1 gap-x-3 gap-y-10">
-    <form class="hidden lg:block">
+    <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
       <div class="border-b border-gray-200 py-6">
         <div
           class="container-map p-12 flex justify-center items-center border border-gray-300 rounded bg-center"
@@ -980,66 +918,6 @@
           >
             {{ mapButtonText }}
           </button>
-        </div>
-      </div>
-
-      <!-- Filter Center Distance -->
-      <div class="border-b border-gray-200 py-6">
-        <h3 class="-my-3 flow-root">
-          <div
-            type="button"
-            class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500 cursor-default"
-            aria-controls="filter-section-1"
-            aria-expanded="false"
-          >
-            <span class="font-medium text-gray-900">Center distance</span>
-          </div>
-        </h3>
-        <div class="pt-6" id="filter-section-1">
-          <div class="space-y-4">
-            <div class="flex items-center">
-              <input
-                id="filter-less-than-1"
-                name="category[]"
-                value="new-arrivals"
-                type="checkbox"
-                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
-              />
-              <label
-                for="filter-less-than-1"
-                class="ml-3 text-sm text-gray-600 cursor-pointer"
-                >Less than 1 km</label
-              >
-            </div>
-            <div class="flex items-center">
-              <input
-                id="filter-less-than-3"
-                name="category[]"
-                value="new-arrivals"
-                type="checkbox"
-                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
-              />
-              <label
-                for="filter-less-than-3"
-                class="ml-3 text-sm text-gray-600 cursor-pointer"
-                >Less than 3 km</label
-              >
-            </div>
-            <div class="flex items-center">
-              <input
-                id="filter-less-than-5"
-                name="category[]"
-                value="new-arrivals"
-                type="checkbox"
-                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
-              />
-              <label
-                for="filter-less-than-5"
-                class="ml-3 text-sm text-gray-600 cursor-pointer"
-                >Less than 5 km</label
-              >
-            </div>
-          </div>
         </div>
       </div>
 
@@ -1060,10 +938,10 @@
             <div class="flex items-center">
               <input
                 id="filter-bicycle-rental"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="BicycleRental"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-bicycle-rental"
@@ -1074,10 +952,10 @@
             <div class="flex items-center">
               <input
                 id="filter-golf-course"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="Golfcourse"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-golf-course"
@@ -1088,10 +966,10 @@
             <div class="flex items-center">
               <input
                 id="filter-solarium"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="Solarium"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-solarium"
@@ -1102,10 +980,10 @@
             <div class="flex items-center">
               <input
                 id="filter-massage"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="Massage"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-massage"
@@ -1116,10 +994,10 @@
             <div class="flex items-center">
               <input
                 id="filter-sauna"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="Sauna"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-sauna"
@@ -1148,10 +1026,10 @@
             <div class="flex items-center">
               <input
                 id="filter-free-cancellation"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="FreeCancellation"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-free-cancellation"
@@ -1180,10 +1058,10 @@
             <div class="flex items-center">
               <input
                 id="filter-self-catering"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="SelfCatering"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-self-catering"
@@ -1194,10 +1072,10 @@
             <div class="flex items-center">
               <input
                 id="filter-breakfast-included"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="BreakfastIncluded"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-breakfast-included"
@@ -1208,10 +1086,10 @@
             <div class="flex items-center">
               <input
                 id="filter-breakfast-and-dinner-included"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="BreakfastDinnerIncluded"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-breakfast-and-dinner-included"
@@ -1240,10 +1118,10 @@
             <div class="flex items-center">
               <input
                 id="filter-twin-beds"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="TwinBeds"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-twin-beds"
@@ -1254,10 +1132,10 @@
             <div class="flex items-center">
               <input
                 id="filter-double-bed"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="DoubleBed"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-double-bed"
@@ -1268,10 +1146,10 @@
             <div class="flex items-center">
               <input
                 id="filter-large-double-bed"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="LargeDoubleBed"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-large-double-bed"
@@ -1282,10 +1160,10 @@
             <div class="flex items-center">
               <input
                 id="filter-extra-large-double-bed"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="ExtraLargeDoubleBed"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-extra-large-double-bed"
@@ -1314,8 +1192,6 @@
             <div class="flex items-center">
               <input
                 id="filter-superb-9"
-                name="category[]"
-                value="new-arrivals"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
               />
@@ -1328,10 +1204,9 @@
             <div class="flex items-center">
               <input
                 id="filter-superb-8"
-                name="category[]"
-                value="new-arrivals"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-superb-8"
@@ -1342,10 +1217,9 @@
             <div class="flex items-center">
               <input
                 id="filter-superb-7"
-                name="category[]"
-                value="new-arrivals"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-superb-7"
@@ -1356,10 +1230,9 @@
             <div class="flex items-center">
               <input
                 id="filter-superb-6"
-                name="category[]"
-                value="new-arrivals"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-superb-6"
@@ -1388,24 +1261,24 @@
             <div class="flex items-center">
               <input
                 id="filter-non-smoking-romms"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="NonSmokingRooms"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-non-smoking-romms-"
                 class="ml-3 text-sm text-gray-600 cursor-pointer"
-                >Non-smoking rooms</label
+                >Non smoking rooms</label
               >
             </div>
             <div class="flex items-center">
               <input
                 id="filter-very-good-wifi"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="VeryGoodWifi"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-category-18"
@@ -1416,10 +1289,10 @@
             <div class="flex items-center">
               <input
                 id="filter-24-hour-front-desk"
-                name="category[]"
-                value="new-arrivals"
+                formControlName=""
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-24-hour-front-desk"
@@ -1430,10 +1303,10 @@
             <div class="flex items-center">
               <input
                 id="filter-restaurant"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="Restaurant"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-restaurant"
@@ -1444,10 +1317,10 @@
             <div class="flex items-center">
               <input
                 id="filter-swimming-pool"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="SwimmingPool"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-swimming-pool"
@@ -1458,10 +1331,10 @@
             <div class="flex items-center">
               <input
                 id="filter-room-service"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="RoomService"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-room-service"
@@ -1472,10 +1345,10 @@
             <div class="flex items-center">
               <input
                 id="filter-family-rooms"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="FamilyRooms"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-family-rooms"
@@ -1486,10 +1359,10 @@
             <div class="flex items-center">
               <input
                 id="filter-facilities-disabled-guests"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="FacilitesDisabledGuest"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-facilities-disabled-guests"
@@ -1500,10 +1373,10 @@
             <div class="flex items-center">
               <input
                 id="filter-parking"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="Parking"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-parking"
@@ -1514,10 +1387,10 @@
             <div class="flex items-center">
               <input
                 id="filter-fitness-centre"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="FamilyRooms"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-fitness-centre"
@@ -1528,10 +1401,10 @@
             <div class="flex items-center">
               <input
                 id="filter-airoport-schulettle"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="AeroportSchuttle"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-airoport-schulettle"
@@ -1542,10 +1415,10 @@
             <div class="flex items-center">
               <input
                 id="filter-spa-and-wallness"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="SpaWellnessCentre"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-spa-and-wallness"
@@ -1556,10 +1429,10 @@
             <div class="flex items-center">
               <input
                 id="filter-pets-allowed"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="PetsAllowed"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-pets-allowed"
@@ -1570,10 +1443,10 @@
             <div class="flex items-center">
               <input
                 id="filter-patio"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="PetsAllowed"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-patio"
@@ -1602,10 +1475,10 @@
             <div class="flex items-center">
               <input
                 id="filter-kitchen"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="Kitchen"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-kitchen"
@@ -1616,10 +1489,10 @@
             <div class="flex items-center">
               <input
                 id="filter-private-bahtroom"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="PrivateBathroom"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-private-bahtroom"
@@ -1630,10 +1503,10 @@
             <div class="flex items-center">
               <input
                 id="filter-air-conditioning"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="AirConditioning"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-air-conditioning"
@@ -1644,10 +1517,10 @@
             <div class="flex items-center">
               <input
                 id="filter-laptop-fiendly"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="LaptopFriendlyWorkspace"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-laptop-fiendly"
@@ -1658,10 +1531,10 @@
             <div class="flex items-center">
               <input
                 id="filter-bath"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="Bath"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-bath"
@@ -1672,10 +1545,10 @@
             <div class="flex items-center">
               <input
                 id="filter-terrace"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="Terrace"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-terrace"
@@ -1686,10 +1559,10 @@
             <div class="flex items-center">
               <input
                 id="filter-balcony"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="Balcony"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-balcony"
@@ -1700,10 +1573,10 @@
             <div class="flex items-center">
               <input
                 id="filter-flat-screen-tv"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="BlatScreenTv"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-flat-screen-tv"
@@ -1714,10 +1587,10 @@
             <div class="flex items-center">
               <input
                 id="filter-whasing-machine"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="WashingMachine"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-whasing-machine"
@@ -1728,10 +1601,10 @@
             <div class="flex items-center">
               <input
                 id="filter-soundproffing"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="Soundproofing"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-soundproffing"
@@ -1742,10 +1615,10 @@
             <div class="flex items-center">
               <input
                 id="filter-view"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="ViewHotel"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-view"
@@ -1756,10 +1629,10 @@
             <div class="flex items-center">
               <input
                 id="filter-sea-view"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="SeaView"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-sea-view"
@@ -1770,10 +1643,10 @@
             <div class="flex items-center">
               <input
                 id="filter-private-pool"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="PrivatePool"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-private-pool"
@@ -1804,10 +1677,10 @@
             <div class="flex items-center">
               <input
                 id="filter-wheelchair-accesible"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="WheelchairAccessible"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-wheelchair-accesible"
@@ -1818,10 +1691,10 @@
             <div class="flex items-center">
               <input
                 id="filter-toilet-whith-grab-rails"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="ToiletGrabRails"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-toilet-whith-grab-rails"
@@ -1832,10 +1705,10 @@
             <div class="flex items-center">
               <input
                 id="filter-higher-level-toilet"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="HigherLevelToilet"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-higher-level-toilet"
@@ -1846,10 +1719,10 @@
             <div class="flex items-center">
               <input
                 id="filter-lower-bathroom-sink"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="LowerBathroomSink"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-lower-bathroom-sink"
@@ -1860,10 +1733,10 @@
             <div class="flex items-center">
               <input
                 id="filter-emergency-cord-in-bathroom"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="EmergencyCordBathroom"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-emergency-cord-in-bathroom"
@@ -1874,10 +1747,10 @@
             <div class="flex items-center">
               <input
                 id="filter-visual-aids-braille"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="VisualAidsBraille"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-visual-aids-braille"
@@ -1888,10 +1761,10 @@
             <div class="flex items-center">
               <input
                 id="filter-visual-aids-tactile-signs"
-                name="category[]"
-                value="new-arrivals"
+                formControlName="VisualAidsTactileSigns"
                 type="checkbox"
                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                (change)="applyFilters()"
               />
               <label
                 for="filter-visual-aids-tactile-signs"
@@ -1902,7 +1775,7 @@
           </div>
         </div>
       </div>
+      <div class="lg:col-span-3"></div>
     </form>
-    <div class="lg:col-span-3"></div>
   </div>
 </section>

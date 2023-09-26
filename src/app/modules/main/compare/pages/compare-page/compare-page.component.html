@@ -38,12 +38,15 @@
               </svg>
             </button>
           </div>
-
-          <img
-            [src]="hotel.imageUrl"
-            alt="{{ hotel.name }}"
-            class="w-full h-48 object-cover mb-4 rounded-md"
-          />
+          <div
+            class="w-60 h-60 mb-4 rounded-md overflow-hidden sticky items-center justify-center"
+          >
+            <img
+              [src]="hotel.imageUrl"
+              alt="{{ hotel.name }}"
+              class="w-full h-full object-cover"
+            />
+          </div>
 
           <li class="flex justify-between items-center">
             <span class="font-bold">Price</span>
@@ -79,10 +82,10 @@
       <!-- Boton para añadir un nuevo hotel -->
       <div
         *ngIf="hotels.length < 4"
-        class="bg-white border-2 rounded shadow-md relative flex items-center justify-center w-40 h-40"
+        class="mr-4 hover:bg-gray-100 rounded-full relative flex items-center justify-center w-40 h-40"
       >
         <button
-          class="tooltip text-6xl text-black opacity-50 rounded-full hover:opacity-100 mb-2"
+          class="tooltip text-6xl text-black opacity-50 hover:opacity-100 mb-2"
           data-tip="Add hotel!"
           (click)="openModal()"
         >
@@ -126,14 +129,19 @@
         type="text"
         placeholder="Search..."
         class="w-full p-2 border border-gray-300 rounded mb-2"
+        [(ngModel)]="searchQuery"
+        (input)="onSearchChange()"
       />
 
-      <ul class="mt-2 mb-6">
-        <li class="border-b border-gray-200 py-2">
-          Hotel 1 <button class="text-blue-500 ml-2">Select</button>
-        </li>
-        <li class="border-b border-gray-200 py-2">
-          Hotel 2 <button class="text-blue-500 ml-2">Select</button>
+      <ul class="mt-2 mb-6 custom-scrollbar overflow-y-auto max-h-48">
+        <li
+          *ngFor="let availableHotel of filteredHotels"
+          class="border-b border-gray-200 py-2"
+        >
+          {{ availableHotel.name }}
+          <button class="text-blue-500 ml-2" (click)="addHotel(availableHotel)">
+            Add
+          </button>
         </li>
       </ul>
     </div>

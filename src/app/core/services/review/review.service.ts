@@ -24,6 +24,16 @@ export class ReviewService {
     });
   }
 
+  getReviewsByUserId(userId: string): Observable<Review[]> {
+    const url = `${this.apiUrl}/api/reviews/user/${userId}`;
+    return this.http.get<Review[]>(url).pipe(
+      catchError((error: any) => {
+        console.error('Error:', error);
+        return throwError(error);
+      }),
+    );
+  }
+
   getReviewCountByHotelId(hotelId: string): Observable<number> {
     const url = `${this.apiUrl}/api/reviews/hotel/${hotelId}/review-count`;
     return this.http.get<number>(url).pipe(
