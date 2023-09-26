@@ -121,7 +121,7 @@
       <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
       <app-available-rates [hotelSites]="hotel.sites" />
       <h3 class="text-xl mb-2">Map</h3>
-      <app-map-hotels [size]="'large'" />
+      <app-map-hotels styleConfig="hotelDetail" />
       <div class="pt-2">
         <span class="pl-2 font-normal text-dark opacity-50"
           >{{ hotel.address }} reviews</span
